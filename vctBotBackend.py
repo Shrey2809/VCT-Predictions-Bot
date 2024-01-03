@@ -8,6 +8,7 @@ from tabulate import tabulate
 import random
 import csv
 import re
+import os
 
 class vctBotBackend(commands.AutoShardedBot):
     # Initialize the bot
@@ -235,9 +236,15 @@ class vctBotBackend(commands.AutoShardedBot):
                                 await pollMessage.add_reaction(emoteB)
                             i += 1
                     
-                out_title = f'{parsed_title["League"]}_{parsed_title["Type"]}_{parsed_title["Day"]}_{server_id}'
+                out_title = f'''/2024/{server_id}/{parsed_title["League"]}/{parsed_title["Type"]}/DAY{parsed_title["Day"]}'''
+                directory = f'''/2024/{server_id}/{parsed_title["League"]}/{parsed_title["Type"]}'''
+                
                 msgIds = []
-                with open(f'IDs/{out_title}.txt', 'w') as id_file:
+
+                os.makedirs(f"IDs/{directory}", exist_ok=True)
+                os.makedirs(f"winner_scores/{directory}", exist_ok=True)
+                os.makedirs(f"Records/{directory}", exist_ok=True)
+                with open(f"IDs/{out_title}.txt", 'w') as id_file:
                     for msg in self.messages:
                         msgIds.append(msg.id)
                         id_file.write(f"{msg.id}\n")
@@ -442,11 +449,12 @@ class vctBotBackend(commands.AutoShardedBot):
 
         # Record all games in a set of polls from the file <+record {Title}>
         if message.content.startswith("+record"):
-            # BUILD LIST
+            # Build List
             messageContent = message.clean_content
+            titleDict = self.parse_poll_string(messageContent)
             title = self.get_file_name(messageContent, message.guild.id)
-            self.fname = f"Records/{title}.csv"
-            with open(f"IDs/{title}.txt")  as IDs:
+            self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.csv'''
+            with open(f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.txt''')  as IDs:
                 self.messageIDs = [int(line.strip()) for line in IDs]
 
             for messageID in self.messageIDs:
