@@ -7,3 +7,9 @@ outputChanges.log
 
 Records/2023/*
 Games/2023/*
+Games/*
+IDs/*
+
+__pycache__/*
+
+etc/config.json

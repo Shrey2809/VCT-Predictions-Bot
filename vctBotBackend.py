@@ -64,6 +64,7 @@ class vctBotBackend(commands.AutoShardedBot):
             filename='blastR6.log',  # Specify the path to your log file
             filemode='a'  # Use 'a' to append to the file, 'w' to overwrite
         )
+        self.fname = ''
         self.logger = logging.getLogger(__name__)
 
     # Parses the title, which should be in between curly brackets ('{ title }')
@@ -100,8 +101,7 @@ class vctBotBackend(commands.AutoShardedBot):
             return result
         else:
             return None
-
-        
+   
     def get_file_name(self, message_content, server_id):
         parsed_title = self.parse_poll_string(message_content)
         print (parsed_title)
@@ -272,6 +272,10 @@ class vctBotBackend(commands.AutoShardedBot):
                 embed = discord.Embed(title=f"{nameToCheck}'s Rank", color=self.generate_random_color())
                 embed.add_field(name='\u200b', value=f'```\n{table}\n```')
                 await message.channel.send(embed=embed)
+            
+            # Check file names <+check>
+            if message.content.startswith("+check"):
+                await message.channel.send(f'File name loaded: {self.fname}')
 
             # Load a specific file for the list of IDs <+load {Title}>
             if message.content.startswith("+load"):
@@ -342,8 +346,10 @@ class vctBotBackend(commands.AutoShardedBot):
             with open(self.fname, 'w', encoding='UTF8', newline = '') as f:
                 writer = csv.writer(f)
                 writer.writerow(setOfUsers)
-            print (f"File and list created: {self.fname}")
-            self.logger.info(f"File and list created: {self.fname}")
+            
+            dictOfFile = self.parse_poll_string(messageContent)
+            print (f"File and list created: {dictOfFile}")
+            self.logger.info(f"File and list created: {dictOfFile}")
 
         
         # Close a specific game <+close GameNumber>
@@ -455,8 +461,9 @@ class vctBotBackend(commands.AutoShardedBot):
             with open(self.fname, 'w', encoding='UTF8', newline = '') as f:
                 writer = csv.writer(f)
                 writer.writerow(setOfUsers)
-            print (f"File and list created: {self.fname}")
-            self.logger.info(f"File and list created: {self.fname}")
+            dictOfFile = self.parse_poll_string(messageContent)
+            print (f"File and list created: {dictOfFile}")
+            self.logger.info(f"File and list created: {dictOfFile}")
 
             # Record Game
             i = 1
@@ -549,7 +556,7 @@ class vctBotBackend(commands.AutoShardedBot):
             self.teamUsersB = []
             self.outputList = []
 
-            await message.channel.send(f"{title} recorded")                
+            await message.channel.send(f"{dictOfFile} recorded")                
 
         # Show a user their rank <+rank>
         if message.content.startswith("+rank"):
