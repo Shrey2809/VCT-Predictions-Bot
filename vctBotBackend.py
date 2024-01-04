@@ -479,8 +479,13 @@ class vctBotBackend(commands.AutoShardedBot):
             messageContent = message.clean_content
             titleDict = self.parse_poll_string(messageContent)
             title = self.get_file_name(messageContent, message.guild.id)
-            self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.csv'''
-            with open(f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.txt''')  as IDs:
+            if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
+                self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.csv'''
+                id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.txt'''
+            else: 
+                self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.csv'''
+                id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.txt'''
+            with open(id_fname)  as IDs:
                 self.messageIDs = [int(line.strip()) for line in IDs]
 
             for messageID in self.messageIDs:
