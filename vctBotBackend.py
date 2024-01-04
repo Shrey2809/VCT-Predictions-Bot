@@ -20,8 +20,9 @@ class vctBotBackend(commands.AutoShardedBot):
         with open('etc/emotes.json') as json_file:
             self.emojiListFront = json.load(json_file)
 
-        self.team1 = []
-        self.team2 = []
+        self.team1  = []
+        self.team2  = []
+        self.points = []
 
         super().__init__(command_prefix="+poll", status=discord.Status.online, intents=discord.Intents.all())
         self.config = config
@@ -62,11 +63,12 @@ class vctBotBackend(commands.AutoShardedBot):
         logging.basicConfig(
             level=logging.DEBUG,
             format='%(asctime)s [%(levelname)s] %(message)s',
-            filename='blastR6.log',  # Specify the path to your log file
+            filename='VCT2024.log',  # Specify the path to your log file
             filemode='a'  # Use 'a' to append to the file, 'w' to overwrite
         )
         self.fname = ''
         self.logger = logging.getLogger(__name__)
+        
 
     # Parses the title, which should be in between curly brackets ('{ title }')
     def find_title(self, message):
@@ -114,15 +116,25 @@ class vctBotBackend(commands.AutoShardedBot):
     # Load all the teams into the team1 and team2 lists
     def get_team_lists(self, title):
         fileName = "Games/" + title + ".csv"
-        file     = open(fileName, "r")
+        file = open(fileName, "r")
         i = 1
         for row in file:
-            r = row.split(',')
-            self.team1.append(r[0])
-            self.team2.append(r[1].strip())
-        self.logger.info(self.team1)
-        self.logger.info(self.team2)
+            r = row.strip().split(',')
+            if len(r) >= 2:
+                team1_name = r[0]
+                team2_name = r[1]
+                points = int(r[2].strip()) if len(r) > 2 and r[2].strip() else 1
+                
+                self.team1.append(team1_name)
+                self.team2.append(team2_name)
+                self.points.append(points)
+
+                self.logger.info(f"Team 1: {team1_name}, Team 2: {team2_name}, Points: {points}")
+            else:
+                self.logger.warning(f"Issue with row {i} in {fileName}. Skipping due to incomplete data.")
+            i += 1
         file.close()
+
 
     # Get the emote for the team
     def get_team_emote(self, team, i):
@@ -179,15 +191,18 @@ class vctBotBackend(commands.AutoShardedBot):
             if message.content.startswith("+poll"):
                 messageContent = message.clean_content
                 server_id = message.guild.id if message.guild else None
-                
-                parsed_title = self.parse_poll_string(messageContent)
-                pollColor = self.leagues[parsed_title["League"]]
+        
+                titleDict = self.parse_poll_string(messageContent)
+                pollColor = self.leagues[titleDict["League"]]
+                if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
+                    title = f'''2024/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}'''
+                else:
+                    title = f'''2024/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}'''
 
-                title = f'{parsed_title["League"]}_{parsed_title["Type"]}_{parsed_title["Day"]}'
-                league    = self.emojiListFront[parsed_title["League"]]
-                day = parsed_title["Day"]
-                winner = {}
-                score  = {}
+                league    = self.emojiListFront[titleDict["League"]]
+                day       = titleDict["Day"]
+                winner    = {}
+                score     = {}
 
                 self.get_team_lists(title)
                 self.maxGames = len(self.team1)
@@ -214,13 +229,13 @@ class vctBotBackend(commands.AutoShardedBot):
                                     pollMessage = pollMessage + "\n\n" + emoteB + " " + choice
                         i += 1
 
-                    boxTitle = f"**{league} D{day} G{j}: {self.team1[j-1]} vs {self.team2[j-1]}**"
+                    boxTitle = f"**{league} D{day} G{j}: {self.team1[j-1]} vs {self.team2[j-1]} (Points: {self.points[j-1]})**"
                     e = discord.Embed(title=boxTitle, description=pollMessage, colour=pollColor)
                     pollMessage = await message.channel.send(embed=e)
                     self.messages.append(pollMessage)
 
                     winner[f"MATCH {j}"] = f"{self.team1[j-1]}/{self.team2[j-1]}"
-                    score[f"MATCH {j}"]  = 0
+                    score[f"MATCH {j}"]  = self.points[j-1]
 
                     i = 0
                     final_options = [] 
@@ -235,9 +250,13 @@ class vctBotBackend(commands.AutoShardedBot):
                                 final_options.append(choice)
                                 await pollMessage.add_reaction(emoteB)
                             i += 1
-                    
-                out_title = f'''/2024/{server_id}/{parsed_title["League"]}/{parsed_title["Type"]}/DAY{parsed_title["Day"]}'''
-                directory = f'''/2024/{server_id}/{parsed_title["League"]}/{parsed_title["Type"]}'''
+                
+                if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
+                    out_title = f'''2024/{server_id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}'''
+                else:
+                    out_title = f'''2024/{server_id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}'''
+
+                directory = f'''/2024/{server_id}/{titleDict["League"]}/{titleDict["Type"]}'''
                 
                 msgIds = []
 
@@ -256,8 +275,9 @@ class vctBotBackend(commands.AutoShardedBot):
                     json.dump(winner_score, json_file, indent=4)
 
                 self.messages = []
-                self.team1 = []
-                self.team2 = []             
+                self.team1    = []
+                self.team2    = [] 
+                self.points   = []            
 
             # Create a top 10 list of standings <+leaderboard>
             if message.content.startswith("+leaderboard"):
@@ -333,12 +353,18 @@ class vctBotBackend(commands.AutoShardedBot):
         # Build the base file with the names of all the users <+build {Title}>
         if message.content.startswith("+build"):
             messageContent = message.clean_content
-
+            titleDict = self.parse_poll_string(messageContent)
             title = self.get_file_name(messageContent, message.guild.id)
+            if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
+                self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.csv'''
+                id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.txt'''
+            else: 
+                self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.csv'''
+                id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.txt'''
 
-            self.fname = f"Records/{title}.csv"
-            with open(f"IDs/{title}.txt")  as IDs:
+            with open(id_fname)  as IDs:
                 self.messageIDs = [int(line.strip()) for line in IDs]
+
 
             for messageID in self.messageIDs:
                 msg = await message.channel.fetch_message(messageID)
