@@ -888,8 +888,7 @@ class vctBotBackend(commands.AutoShardedBot):
 
         if message.content.startswith("+myrank"):
             messageContent = message.clean_content
-            # guildId  = message.guild.id
-            guildId  = 1042862967072501860
+            guildId  = message.guild.id
             userName = message.author.name
             userId   = message.author.id
             outputDict = self.parse_rank_string(messageContent)
