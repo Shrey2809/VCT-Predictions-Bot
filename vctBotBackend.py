@@ -365,21 +365,31 @@ class vctBotBackend(commands.AutoShardedBot):
             with open(id_fname)  as IDs:
                 self.messageIDs = [int(line.strip()) for line in IDs]
 
-
+            user_id_name_map = {} 
             for messageID in self.messageIDs:
                 msg = await message.channel.fetch_message(messageID)
                 for r in msg.reactions:
                     users = set()
+                    
                     async for user in r.users():
                         users.add(user.name)
+                        user_id_name_map[user.name] = user.id  
+
                     self.superSet = self.superSet.union(users)
 
             setOfUsers = list(self.superSet)
+    
+            print(user_id_name_map)
+            user_ids = [user_id_name_map[user_name] for user_name in setOfUsers if user_name != 'MatchIDs']
+
             setOfUsers.append('MatchIDs')
-            with open(self.fname, 'w', encoding='UTF8', newline = '') as f:
+            user_ids.append('UserIDs')
+
+            with open(self.fname, 'w', encoding='UTF8', newline='') as f:
                 writer = csv.writer(f)
                 writer.writerow(setOfUsers)
-            
+                writer.writerow(user_ids)
+                
             dictOfFile = self.parse_poll_string(messageContent)
             print (f"File and list created: {dictOfFile}")
             self.logger.info(f"File and list created: {dictOfFile}")
@@ -413,8 +423,10 @@ class vctBotBackend(commands.AutoShardedBot):
 
                 # get the list of users for a team
                 users = set()
+                user_id_name_map = {} 
                 async for user in reaction.users():
                     users.add(user.name)
+                    user_id_name_map[user.name] = user.id  
 
                 # Create team A list and create team B list
                 if j == 0:
@@ -459,12 +471,14 @@ class vctBotBackend(commands.AutoShardedBot):
                 if user not in df.columns:
                     df[user] = "N/A"
                     df[user] = df[user].astype(object)
+                    df.loc[df['MatchIDs'] == "UserIDs", user] = user_id_name_map[user]
                     df.loc[df['MatchIDs'] == specific_matchID, user] = teamAName
 
             for user in teamBList:
                 if user not in df.columns:
                     df[user] = "N/A"
                     df[user] = df[user].astype(object)
+                    df.loc[df['MatchIDs'] == "UserIDs", user] = user_id_name_map[user]
                     df.loc[df['MatchIDs'] == specific_matchID, user] = teamBName
 
             # Update the original DataFrame with the modified match rows
@@ -475,7 +489,6 @@ class vctBotBackend(commands.AutoShardedBot):
 
         # Record all games in a set of polls from the file <+record {Title}>
         if message.content.startswith("+record"):
-            # Build List
             messageContent = message.clean_content
             titleDict = self.parse_poll_string(messageContent)
             title = self.get_file_name(messageContent, message.guild.id)
@@ -485,21 +498,35 @@ class vctBotBackend(commands.AutoShardedBot):
             else: 
                 self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.csv'''
                 id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.txt'''
+
             with open(id_fname)  as IDs:
                 self.messageIDs = [int(line.strip()) for line in IDs]
 
+            user_id_name_map = {} 
             for messageID in self.messageIDs:
                 msg = await message.channel.fetch_message(messageID)
                 for r in msg.reactions:
                     users = set()
+                    
                     async for user in r.users():
                         users.add(user.name)
+                        user_id_name_map[user.name] = user.id  
+
                     self.superSet = self.superSet.union(users)
+
             setOfUsers = list(self.superSet)
+    
+            print(user_id_name_map)
+            user_ids = [user_id_name_map[user_name] for user_name in setOfUsers if user_name != 'MatchIDs']
+
             setOfUsers.append('MatchIDs')
-            with open(self.fname, 'w', encoding='UTF8', newline = '') as f:
+            user_ids.append('UserIDs')
+
+            with open(self.fname, 'w', encoding='UTF8', newline='') as f:
                 writer = csv.writer(f)
                 writer.writerow(setOfUsers)
+                writer.writerow(user_ids)
+                
             dictOfFile = self.parse_poll_string(messageContent)
             print (f"File and list created: {dictOfFile}")
             self.logger.info(f"File and list created: {dictOfFile}")
@@ -529,8 +556,10 @@ class vctBotBackend(commands.AutoShardedBot):
 
                     # get the list of users for a team
                     users = set()
+                    user_id_name_map = {} 
                     async for user in reaction.users():
                         users.add(user.name)
+                        user_id_name_map[user.name] = user.id  
 
                     # Create team A list and create team B list
                     if j == 0:
@@ -574,12 +603,14 @@ class vctBotBackend(commands.AutoShardedBot):
                     if user not in df.columns:
                         df[user] = "N/A"
                         df[user] = df[user].astype(object)
+                        df.loc[df['MatchIDs'] == "UserIDs", user] = user_id_name_map[user]
                         df.loc[df['MatchIDs'] == specific_matchID, user] = teamAName
 
                 for user in teamBList:
                     if user not in df.columns:
                         df[user] = "N/A"
                         df[user] = df[user].astype(object)
+                        df.loc[df['MatchIDs'] == "UserIDs", user] = user_id_name_map[user]
                         df.loc[df['MatchIDs'] == specific_matchID, user] = teamBName
 
                 # Update the original DataFrame with the modified match rows

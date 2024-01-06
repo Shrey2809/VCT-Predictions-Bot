@@ -29,10 +29,14 @@ This Python script contains a Discord bot (`vctBotBackend`) designed to manage p
 
 4. **Commands**
    - `+poll <LEAGUE> <TYPE> <DAY>`: Create a poll for a specific VCT match.
-   - `+record <Title>`: Record match results based on polls.
+   - `+build <LEAGUE> <TYPE> <DAY>`: Builds the base file for file for <LEAGUE> Day/Week <DAY> for an <TYPE>
+   - `+record <LEAGUE> <TYPE> <DAY>`: Record match results based on polls.
    - `+leaderboard`: Generate the top 10 leaderboard for VCT standings.
    - `+score <NAME>`: Retrieve stats for a specific user.
    - Other commands like `+rank`, `+build`, `+check`, `+load`, `+close`, `+setwinner`, `+exit` exist for various functionalities.
+
+5. **Processing a finished playday**
+   - `python3 processFile.py LEAGUE GAME_TYPE DAY#`
 
 ### Configuration
 - Update `etc/emotes.json` with necessary emojis or emote IDs.
