@@ -318,7 +318,7 @@ class vctBotBackend(commands.AutoShardedBot):
     def get_type_sum(self, conn, type, username=None, user_id=None):
         cursor = conn.cursor()
 
-        if type in ["il1", "il2", "kickoffs"]:
+        if type in ["il1", "il2", "kickoff"]:
             query = f"""
             SELECT  user_id,
                     user_name,
@@ -893,6 +893,7 @@ class vctBotBackend(commands.AutoShardedBot):
             userId   = message.author.id
             outputDict = self.parse_rank_string(messageContent)
             conn = sqlite3.connect(f"VCT_2024_{guildId}.db")
+
             if outputDict["Type"] == 'type':
                 print(f"TYPE TYPE: {outputDict}")
                 df = self.get_type_sum(conn, outputDict["type"], userName, userId)
@@ -905,12 +906,32 @@ class vctBotBackend(commands.AutoShardedBot):
                 await message.channel.send(embed=embed)
             elif outputDict["Type"] == 'specific':
                 print(f"SPECIFIC TYPE: {outputDict}")
-            elif outputDict["latest"] == 'latest':
+                df = self.get_specific_sum(conn, outputDict["league"], outputDict["type"], userName, userId)
+                embed = self.tabulate_df(df, userName, f'{outputDict["league"]} {outputDict["type"]}')
+                await message.channel.send(embed=embed)
+            elif outputDict["Type"] == 'latest':
+
                 print(f"LATEST Type: {outputDict}")
+                with open("etc/latest.txt", 'r') as file:
+                    latest = file.read()
+
+                if latest.lower() in ["kickoff", "il1", "il2", "champions"]:
+                    df = self.get_type_sum(conn, latest.lower(), userName, userId)
+                    embed = self.tabulate_df(df, userName, latest.lower())
+                    await message.channel.send(embed=embed)
+
+                elif latest.lower() in ["madrid", "shanghai","korea"]:
+                    df = self.get_league_sum(conn, latest.lower(), userName, userId)
+                    embed = self.tabulate_df(df, userName, latest.lower())
+                    await message.channel.send(embed=embed)
+                
             elif outputDict["Type"] == 'all':
                 print(f"ALL TYPE: {outputDict}")
             elif outputDict["Type"] == '404':
                 print(f"FALSE TYPE: {outputDict}")
+
+
+            conn.close()
             
 
 
