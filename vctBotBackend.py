@@ -9,6 +9,7 @@ import random
 import csv
 import re
 import os
+import sqlite3
 
 class vctBotBackend(commands.AutoShardedBot):
     # Initialize the bot
@@ -69,20 +70,12 @@ class vctBotBackend(commands.AutoShardedBot):
         self.fname = ''
         self.logger = logging.getLogger(__name__)
         
-
-    # Parses the title, which should be in between curly brackets ('{ title }')
-    def find_title(self, message):
-        first = message.find('{') + 1
-        last = message.find('}')
-        if first == 0 or last == -1:
-            return "Not using the command correctly"
-        return message[first:last]
-    
     # Parse the poll string
     def parse_poll_string(self, input_string):
         poll_match = re.match(r"\+poll\s+(\w+)\s+(\w+)\s+(\d+)", input_string)
         record_match = re.match(r"\+record\s+(\w+)\s+(\w+)\s+(\d+)", input_string)
         build_match = re.match(r"\+build\s+(\w+)\s+(\w+)\s+(\d+)", input_string)
+        load_match  = re.match(r"\+load\s+(\w+)\s+(\w+)\s+(\d+)", input_string)
 
         if poll_match:
             league = poll_match.group(1)
@@ -102,8 +95,47 @@ class vctBotBackend(commands.AutoShardedBot):
             day = int(build_match.group(3))
             result = {"Command": "build", "League": league, "Type": build_type, "Day": day}
             return result
+        elif load_match:
+            league = load_match.group(1)
+            load_type = load_match.group(2)
+            day = int(load_match.group(3))
+            result = {"Command": "load", "League": league, "Type": load_type, "Day": day}
+            return result
         else:
             return None
+
+    def parse_rank_string(self, input_string):
+        input_string = input_string.lower()
+        all             = re.match(r"\+myrank\s+all", input_string)
+        league_or_type  = re.match(r"\+myrank\s+(\w+)", input_string)
+        league_and_type = re.match(r"\+myrank\s+(\w+)\s+(\w+)", input_string)
+        latest          = re.match(r"\+myrank", input_string)
+
+        if all:
+            return {"Command": "rank", "Type": "all"}
+        
+        elif league_and_type:
+            if (league_and_type.group(1) in ["china", "pacific", "americas", "emea", "madrid", "korea", "shanghai"] and 
+                    league_and_type.group(2) in ["il1", "il2", "kickoffs", "masters", "champions"]):
+                return {"Command": "rank", "Type": "specific", "league": league_and_type.group(1), "type": league_and_type.group(2)}
+            elif (league_and_type.group(2) in ["china", "pacific", "americas", "emea", "madrid", "korea", "shanghai"] and 
+                    league_and_type.group(1) in ["il1", "il2", "kickoffs", "masters", "champions"]):
+                return {"Command": "rank", "Type": "specific", "league": league_and_type.group(2), "type": league_and_type.group(1)}
+            else:
+                return {"Command": "rank", "Type": "404"}
+            
+        elif league_or_type:
+            if league_or_type.group(1) in ["china", "pacific", "americas", "emea", "madrid", "korea", "shanghai"]:
+                return {"Command": "rank", "Type": "league", "league": league_or_type.group(1)}
+            elif league_or_type.group(1) in ["il1", "il2", "kickoffs", "masters", "champions"]:
+                return {"Command": "rank", "Type": "type", "type": league_or_type.group(1)}
+            else:
+                return {"Command": "rank", "Type": "404"}
+            
+        elif latest:
+            return {"Command": "rank", "Type": "latest"}
+        else:
+            return {"Command": "rank", "Type": "404"}
    
     def get_file_name(self, message_content, server_id):
         parsed_title = self.parse_poll_string(message_content)
@@ -307,11 +339,16 @@ class vctBotBackend(commands.AutoShardedBot):
             # Load a specific file for the list of IDs <+load {Title}>
             if message.content.startswith("+load"):
                 messageContent = message.clean_content
-                
+                titleDict = self.parse_poll_string(messageContent)
                 title = self.get_file_name(messageContent, message.guild.id)
+                if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
+                    self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.csv'''
+                    id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.txt'''
+                else: 
+                    self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.csv'''
+                    id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.txt'''
                 
-                self.fname = f"Records/{title}.csv"
-                with open(f"IDs/{title}.txt")  as IDs:
+                with open(id_fname)  as IDs:
                     self.messageIDs = [int(line.strip()) for line in IDs]
                 self.logger.info(f"Records and ID files loaded: {self.fname}")
                 print(f"Records and ID files loaded: {self.fname}")
@@ -627,6 +664,35 @@ class vctBotBackend(commands.AutoShardedBot):
             self.outputList = []
 
             await message.channel.send(f"{dictOfFile} recorded")                
+
+        if message.content.startswith("+myrank"):
+            messageContent = message.clean_content
+            guildId  = message.guild.id
+            userInfo = message.author.name
+            userId   = message.author.id
+            outputDict = self.parse_rank_string(messageContent)
+            if outputDict["type"] == 'type':
+                pass 
+                # process data for type
+            elif outputDict["type"] == 'league':
+                pass
+                # process data for league
+            elif outputDict["type"] == 'specific':
+                pass
+                # process data for both league and type
+            elif outputDict["latest"] == 'latest':
+                pass
+                # process data for latest
+            elif outputDict["all"] == 'all':
+                pass
+                # process data for all
+            elif outputDict["404"] == '404':
+                pass
+                # process data for 404
+            
+            # conn = sqlite3.connect(f"VCT2024_{guildId}.db")
+
+
 
         # Show a user their rank <+rank>
         if message.content.startswith("+rank"):
