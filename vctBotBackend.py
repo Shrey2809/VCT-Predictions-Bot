@@ -175,29 +175,250 @@ class vctBotBackend(commands.AutoShardedBot):
         except:
             emote = self.emojiLetters[i]
         return emote
-    
-    # Create a dataframe from the JSON file
-    def createDataframe(self):
-        self.code_fname = "Records/KickOff.json"
-        with open(self.code_fname, 'r') as json_file:
-            data = json.load(json_file)
-        df = pd.DataFrame.from_dict(data, orient='index') \
-            .stack() \
-            .reset_index() \
-            .rename(columns={'level_0': 'Day', 'level_1': 'Attribute', 0: 'Value'}) \
-            .pivot(index='Attribute', columns='Day', values='Value') \
-            .assign(Total=lambda x: x.sum(axis=1)) \
-            .reset_index() \
-            .rename(columns={'Attribute': 'Name'}) \
-            .sort_values(by='Total', ascending=False) \
-            .assign(Rank=lambda x: x['Total'].rank(ascending=False, method='first'))
+
+    # Tabulate data for the embed to send to Discord
+    def tabulate_df(self, df, userInfo, item):
+        df = df[["Rank", "Points"]]
+        table = tabulate(df, headers='keys', tablefmt="simple_outline", showindex="never")
+        embed = discord.Embed(title=f"{userInfo}'s Rank for {item.upper()}", color=self.generate_random_color())
+        embed.add_field(name='\u200b', value=f'```\n{table}\n```')
+        return embed
+
+    # Get points and rank for a specific user for a league
+    def get_league_sum(self, conn, league, username=None, user_id=None):
+        # Create a cursor object to interact with the database
+        cursor = conn.cursor()
+        
+        if league in ["china", "pacific", "americas", "emea"]:
+            query = f"""
+                    SELECT user_name, total_{league}, rank_{league} 
+                    FROM (SELECT user_name, user_id, total_{league},
+                            (SELECT COUNT(DISTINCT rank_val) + 1
+                                FROM (SELECT COALESCE(SUM({league}), 0) AS total_{league}, DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}), 0) DESC) AS rank_val
+                                    FROM (
+                                        SELECT user_name, user_id, {league} FROM DS_2024_KICKOFF
+                                        UNION ALL
+                                        SELECT user_name, user_id, {league} FROM DS_2024_IL1
+                                        UNION ALL
+                                        SELECT user_name, user_id, {league} FROM DS_2024_IL2
+                                    ) AS all_{league}
+                                    GROUP BY user_name, user_id  -- Added user_id to the GROUP BY clause
+                                ) AS ranks
+                                WHERE ranks.total_{league} > ua.total_{league} OR (ranks.total_{league} = ua.total_{league} AND ranks.rank_val < ua.rank_val)
+                            ) AS rank_{league}
+                        FROM (
+                            SELECT user_name, user_id, COALESCE(SUM({league}), 0) AS total_{league}, DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}), 0) DESC) AS rank_val
+                            FROM (
+                                SELECT user_name, user_id, {league} FROM DS_2024_KICKOFF
+                                UNION ALL
+                                SELECT user_name, user_id, {league} FROM DS_2024_IL1
+                                UNION ALL
+                                SELECT user_name, user_id, {league} FROM DS_2024_IL2
+                            ) AS all_{league}
+                            GROUP BY user_name, user_id  -- Added user_id to the GROUP BY clause
+                        ) AS ua
+                    ) 
+                    WHERE user_name = '{username}' or user_id = {user_id};
+            """
+        elif league in ["madrid", "shanghai"]:
+            query = f"""
+                    SELECT 
+                        user_name, 
+                        total_{league}, 
+                        rank_{league}
+                    FROM (  
+                        SELECT 
+                            user_name, 
+                            user_id,
+                            total_{league},
+                            (
+                                SELECT COUNT(DISTINCT rank_val) + 1
+                                FROM (
+                                    SELECT 
+                                        COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
+                                        DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_val
+                                    FROM (
+                                        SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_MASTERS
+                                    ) AS all_{league}
+                                    GROUP BY user_name, user_id 
+                                ) AS ranks
+                                WHERE ranks.total_{league} > ua.total_{league} OR (ranks.total_{league} = ua.total_{league} AND ranks.rank_val < ua.rank_val)
+                            ) AS rank_{league}
+                        FROM (
+                            SELECT 
+                                user_name, 
+                                user_id, 
+                                COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
+                                DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_val
+                            FROM (
+                                SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_MASTERS
+                            ) AS all_{league}
+                            GROUP BY user_name, user_id 
+                        ) AS ua
+                    ) 
+                    WHERE user_name = '{username}' or user_id = {user_id};
+            """
+        elif league in ["korea"]:
+            query = f"""
+                    SELECT 
+                        user_name, 
+                        total_{league}, 
+                        rank_{league}
+                    FROM (  
+                        SELECT 
+                            user_name, 
+                            user_id,
+                            total_{league},
+                            (
+                                SELECT COUNT(DISTINCT rank_val) + 1
+                                FROM (
+                                    SELECT 
+                                        COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
+                                        DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_val
+                                    FROM (
+                                        SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_CHAMPIONS
+                                    ) AS all_{league}
+                                    GROUP BY user_name, user_id 
+                                ) AS ranks
+                                WHERE ranks.total_{league} > ua.total_{league} OR (ranks.total_{league} = ua.total_{league} AND ranks.rank_val < ua.rank_val)
+                            ) AS rank_{league}
+                        FROM (
+                            SELECT 
+                                user_name, 
+                                user_id, 
+                                COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
+                                DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_val
+                            FROM (
+                                SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_CHAMPIONS
+                            ) AS all_{league}
+                            GROUP BY user_name, user_id 
+                        ) AS ua
+                    ) 
+                    WHERE user_name = '{username}' or user_id = {user_id};  
+                    
+            """
+        
+        # Execute the query with the provided username or user_id
+        cursor.execute(query)
+        
+        # Fetch the result
+        result = cursor.fetchall()
+        
+        # Close the cursor and the connection
+        cursor.close()
+        conn.close()
+        
+        # Return the result as a DataFrame
+        df = pd.DataFrame(result, columns=['user_name', f'total_{league}', f'rank_{league}'])
+        df = df.rename(columns={f'total_{league}': 'Points', f'rank_{league}': 'Rank'})
         return df
 
-    # Filter a created DF by a given name
-    def get_df_based_on_name(self, name):
-        dataframe   = self.createDataframe()
-        filtered_df = dataframe.loc[dataframe["Name"]== name]
-        return filtered_df
+
+    # Get points and rank for a specific user for a type
+    def get_type_sum(self, conn, type, username=None, user_id=None):
+        cursor = conn.cursor()
+
+        if type in ["il1", "il2", "kickoffs"]:
+            query = f"""
+            SELECT  user_id,
+                    user_name,
+                    total_sum as total_{type}, dense_rank as rank_{type}
+            FROM (
+                SELECT 
+                    user_id,
+                    user_name,
+                    total_sum,
+                    (
+                        SELECT COUNT(DISTINCT total_sum) + 1
+                        FROM (
+                            SELECT 
+                                SUM(emea) + SUM(china) + SUM(pacific) + SUM(americas)  AS total_sum
+                            FROM DS_2024_IL1
+                            GROUP BY user_name
+                        ) AS ranks
+                        WHERE total_sum > sums.total_sum
+                    ) AS dense_rank
+                FROM (
+                    SELECT 
+                        user_id,
+                        user_name,
+                        SUM(emea) + SUM(china) + SUM(pacific) + SUM(americas) AS total_sum
+                    FROM DS_2024_IL1
+                    GROUP BY user_id, user_name
+                ) AS sums
+            ) 
+            WHERE user_id = {user_id} or user_name = "{username}"
+            """
+        elif type in ["masters"]:
+            query = f"""
+            SELECT  user_id,
+                    user_name,
+                    total_sum as total_{type}, dense_rank as rank_{type}
+            FROM (
+                SELECT 
+                    user_id,
+                    user_name,
+                    total_sum,
+                    (
+                        SELECT COUNT(DISTINCT total_sum) + 1
+                        FROM (
+                            SELECT 
+                                SUM(shanghai_groups + shanghai_playoffs + madrid_groups + madrid_playoffs)  AS total_sum
+                            FROM DS_2024_MASTERS
+                            GROUP BY user_name
+                        ) AS ranks
+                        WHERE total_sum > sums.total_sum
+                    ) AS dense_rank
+                FROM (
+                    SELECT 
+                        user_id,
+                        user_name,
+                        SUM(shanghai_groups + shanghai_playoffs + madrid_groups + madrid_playoffs) AS total_sum
+                    FROM DS_2024_MASTERS
+                    GROUP BY user_id, user_name
+                ) AS sums
+            ) 
+            WHERE user_id = {user_id} or user_name = "{username}"
+            """
+        elif type in ["champions"]:
+            query = f"""
+            SELECT  user_id,
+                    user_name,
+                    total_sum as total_{type}, dense_rank as rank_{type}
+            FROM (
+                SELECT 
+                    user_id,
+                    user_name,
+                    total_sum,
+                    (
+                        SELECT COUNT(DISTINCT total_sum) + 1
+                        FROM (
+                            SELECT 
+                                SUM({type}_groups + {type}_playoffs)  AS total_sum
+                            FROM DS_2024_CHAMPIONS
+                            GROUP BY user_name
+                        ) AS ranks
+                        WHERE total_sum > sums.total_sum
+                    ) AS dense_rank
+                FROM (
+                    SELECT 
+                        user_id,
+                        user_name,
+                        SUM({type}_groups + {type}_playoffs) AS total_sum
+                    FROM DS_2024_CHAMPIONS
+                    GROUP BY user_id, user_name
+                ) AS sums
+            ) 
+            WHERE user_id = {user_id} or user_name = "{username}"
+            """
+        
+        cursor.execute(query)
+        result = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        df = pd.DataFrame(result, columns=['user_id', 'user_name', f'total_{type}', f'rank_{type}'])
+        df = df.rename(columns={f'total_{type}': 'Points', f'rank_{type}': 'Rank'})
+        return df
 
     # Generate a random 24-bit color code
     def generate_random_color(self):
@@ -667,30 +888,31 @@ class vctBotBackend(commands.AutoShardedBot):
 
         if message.content.startswith("+myrank"):
             messageContent = message.clean_content
-            guildId  = message.guild.id
-            userInfo = message.author.name
+            # guildId  = message.guild.id
+            guildId  = 1042862967072501860
+            userName = message.author.name
             userId   = message.author.id
             outputDict = self.parse_rank_string(messageContent)
-            if outputDict["type"] == 'type':
-                pass 
-                # process data for type
-            elif outputDict["type"] == 'league':
-                pass
-                # process data for league
-            elif outputDict["type"] == 'specific':
-                pass
-                # process data for both league and type
+            conn = sqlite3.connect(f"VCT_2024_{guildId}.db")
+            if outputDict["Type"] == 'type':
+                print(f"TYPE TYPE: {outputDict}")
+                df = self.get_type_sum(conn, outputDict["type"], userName, userId)
+                embed = self.tabulate_df(df, userName, outputDict["type"])
+                await message.channel.send(embed=embed)
+            elif outputDict["Type"] == 'league':
+                print(f"LEAGUE TYPE: {outputDict}")
+                df = self.get_league_sum(conn, outputDict["league"], userName, userId)
+                embed = self.tabulate_df(df, userName, outputDict["league"])
+                await message.channel.send(embed=embed)
+            elif outputDict["Type"] == 'specific':
+                print(f"SPECIFIC TYPE: {outputDict}")
             elif outputDict["latest"] == 'latest':
-                pass
-                # process data for latest
-            elif outputDict["all"] == 'all':
-                pass
-                # process data for all
-            elif outputDict["404"] == '404':
-                pass
-                # process data for 404
+                print(f"LATEST Type: {outputDict}")
+            elif outputDict["Type"] == 'all':
+                print(f"ALL TYPE: {outputDict}")
+            elif outputDict["Type"] == '404':
+                print(f"FALSE TYPE: {outputDict}")
             
-            # conn = sqlite3.connect(f"VCT2024_{guildId}.db")
 
 
 
