@@ -7,111 +7,58 @@ def get_league_sum(conn, league, username=None, user_id=None):
     
     if league in ["china", "pacific", "americas", "emea"]:
         query = f"""
-                SELECT user_name, total_{league}, rank_{league} 
-                FROM (SELECT user_name, user_id, total_{league},
-                        (SELECT COUNT(DISTINCT rank_val) + 1
-                            FROM (SELECT COALESCE(SUM({league}), 0) AS total_{league}, DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}), 0) DESC) AS rank_val
-                                FROM (
-                                    SELECT user_name, user_id, {league} FROM DS_2024_KICKOFF
-                                    UNION ALL
-                                    SELECT user_name, user_id, {league} FROM DS_2024_IL1
-                                    UNION ALL
-                                    SELECT user_name, user_id, {league} FROM DS_2024_IL2
-                                ) AS all_{league}
-                                GROUP BY user_name, user_id  -- Added user_id to the GROUP BY clause
-                            ) AS ranks
-                            WHERE ranks.total_{league} > ua.total_{league} OR (ranks.total_{league} = ua.total_{league} AND ranks.rank_val < ua.rank_val)
-                        ) AS rank_{league}
+            SELECT user_name, total_{league}, rank_{league}
+            FROM (
+                SELECT user_name, user_id, total_{league}, rank_{league},
+                    ROW_NUMBER() OVER (ORDER BY total_{league} DESC) AS overall_rank
+                FROM (
+                    SELECT user_name, user_id, COALESCE(SUM({league}), 0) AS total_{league},
+                        ROW_NUMBER() OVER (ORDER BY COALESCE(SUM({league}), 0) DESC) AS rank_{league}
                     FROM (
-                        SELECT user_name, user_id, COALESCE(SUM({league}), 0) AS total_{league}, DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}), 0) DESC) AS rank_val
-                        FROM (
-                            SELECT user_name, user_id, {league} FROM DS_2024_KICKOFF
-                            UNION ALL
-                            SELECT user_name, user_id, {league} FROM DS_2024_IL1
-                            UNION ALL
-                            SELECT user_name, user_id, {league} FROM DS_2024_IL2
-                        ) AS all_{league}
-                        GROUP BY user_name, user_id  -- Added user_id to the GROUP BY clause
-                    ) AS ua
-                ) 
-                WHERE user_name = '{username}' or user_id = {user_id};
+                        SELECT user_name, user_id, {league} FROM DS_2024_KICKOFF
+                        UNION ALL
+                        SELECT user_name, user_id, {league} FROM DS_2024_IL1
+                        UNION ALL
+                        SELECT user_name, user_id, {league} FROM DS_2024_IL2
+                    ) AS all_{league}
+                    GROUP BY user_name, user_id
+                ) AS ua
+            ) AS ranked_users
+            WHERE user_name = '{username}' or user_id = {user_id};
         """
     elif league in ["madrid", "shanghai"]:
         query = f"""
-                SELECT 
-                    user_name, 
-                    total_{league}, 
-                    rank_{league}
-                FROM (  
-                    SELECT 
-                        user_name, 
-                        user_id,
-                        total_{league},
-                        (
-                            SELECT COUNT(DISTINCT rank_val) + 1
-                            FROM (
-                                SELECT 
-                                    COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
-                                    DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_val
-                                FROM (
-                                    SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_MASTERS
-                                ) AS all_{league}
-                                GROUP BY user_name, user_id 
-                            ) AS ranks
-                            WHERE ranks.total_{league} > ua.total_{league} OR (ranks.total_{league} = ua.total_{league} AND ranks.rank_val < ua.rank_val)
-                        ) AS rank_{league}
+            SELECT user_name, total_{league}, rank_{league}
+            FROM (
+                SELECT user_name, user_id, total_{league}, rank_{league},
+                    ROW_NUMBER() OVER (ORDER BY total_{league} DESC) AS row_num
+                FROM (
+                    SELECT user_name, user_id, COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
+                        ROW_NUMBER() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_{league}
                     FROM (
-                        SELECT 
-                            user_name, 
-                            user_id, 
-                            COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
-                            DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_val
-                        FROM (
-                            SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_MASTERS
-                        ) AS all_{league}
-                        GROUP BY user_name, user_id 
-                    ) AS ua
-                ) 
-                WHERE user_name = '{username}' or user_id = {user_id};
+                        SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_MASTERS
+                    ) AS all_{league}
+                    GROUP BY user_name, user_id
+                ) AS ua
+            ) AS ranked_users
+            WHERE user_name = '{username}' or user_id = {user_id};
         """
     elif league in ["korea"]:
         query = f"""
-                SELECT 
-                    user_name, 
-                    total_{league}, 
-                    rank_{league}
-                FROM (  
-                    SELECT 
-                        user_name, 
-                        user_id,
-                        total_{league},
-                        (
-                            SELECT COUNT(DISTINCT rank_val) + 1
-                            FROM (
-                                SELECT 
-                                    COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
-                                    DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_val
-                                FROM (
-                                    SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_CHAMPIONS
-                                ) AS all_{league}
-                                GROUP BY user_name, user_id 
-                            ) AS ranks
-                            WHERE ranks.total_{league} > ua.total_{league} OR (ranks.total_{league} = ua.total_{league} AND ranks.rank_val < ua.rank_val)
-                        ) AS rank_{league}
+            SELECT user_name, total_{league}, rank_{league}
+            FROM (
+                SELECT user_name, user_id, total_{league}, rank_{league},
+                    ROW_NUMBER() OVER (ORDER BY total_{league} DESC) AS row_num
+                FROM (
+                    SELECT user_name, user_id, COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
+                        ROW_NUMBER() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_{league}
                     FROM (
-                        SELECT 
-                            user_name, 
-                            user_id, 
-                            COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
-                            DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_val
-                        FROM (
-                            SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_CHAMPIONS
-                        ) AS all_{league}
-                        GROUP BY user_name, user_id 
-                    ) AS ua
-                ) 
-                WHERE user_name = '{username}' or user_id = {user_id};  
-                
+                        SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_CHAMPIONS
+                    ) AS all_{league}
+                    GROUP BY user_name, user_id
+                ) AS ua
+            ) AS ranked_users
+            WHERE user_name = '{username}' or user_id = {user_id};       
         """
     
     # Execute the query with the provided username or user_id
@@ -135,96 +82,66 @@ def get_specific_sum(conn, league, type, username=None, user_id=None):
 
     if type in ["il1", "il2", "kickoff"]:
         query = f"""
-        SELECT  user_id,
-                user_name,
-                total_sum as total_{league}_{type}, dense_rank as rank_{league}_{type}
-        FROM (
-            SELECT 
-                user_id,
-                user_name,
-                total_sum,
-                (
-                    SELECT COUNT(DISTINCT total_sum) + 1
-                    FROM (
-                        SELECT 
-                            SUM({league}) AS total_sum
-                        FROM DS_2024_{type.upper()}
-                        GROUP BY user_name
-                    ) AS ranks
-                    WHERE total_sum > sums.total_sum
-                ) AS dense_rank
+            SELECT user_name, user_id, total_sum as total_{league}_{type}, dense_rank as rank_{league}_{type}
             FROM (
-                SELECT 
-                    user_id,
-                    user_name,
-                    SUM({league}) AS total_sum
-                FROM DS_2024_{type.upper()}
-                GROUP BY user_id, user_name
-            ) AS sums
-        ) 
-        WHERE user_id = {user_id} or user_name = "{username}"
+                SELECT user_id, user_name, total_sum, dense_rank,
+                    ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS row_num
+                FROM (
+                    SELECT user_id, user_name, total_sum, dense_rank
+                    FROM (
+                        SELECT user_id, user_name, total_sum,
+                            ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS dense_rank
+                        FROM (
+                            SELECT user_id, user_name, SUM({league}) AS total_sum
+                            FROM DS_2024_{type.upper()}
+                            GROUP BY user_id, user_name
+                        ) AS sums
+                    ) AS ranks
+                ) AS ua
+            ) AS ranked_users
+            WHERE user_id = {user_id} or user_name = "{username}"
         """
-    elif type in ["madrid", "shanghai"]:
+    elif type in ["masters"]:
         query = f"""
-        SELECT  user_id,
-                user_name,
-                total_sum as total_{league}_{type}, dense_rank as rank_{league}_{type}
-        FROM (
-            SELECT 
-                user_id,
-                user_name,
-                total_sum,
-                (
-                    SELECT COUNT(DISTINCT total_sum) + 1
-                    FROM (
-                        SELECT 
-                            SUM({league}_groups + {league}_playoffs) AS total_sum
-                        FROM DS_2024_MASTERS
-                        GROUP BY user_name
-                    ) AS ranks
-                    WHERE total_sum > sums.total_sum
-                ) AS dense_rank
+            SELECT user_name, user_id, total_sum as total_{league}_{type}, dense_rank as rank_{league}_{type}
             FROM (
-                SELECT 
-                    user_id,
-                    user_name,
-                    SUM({league}_groups + {league}_playoffs) AS total_sum
-                FROM DS_2024_MASTERS
-                GROUP BY user_id, user_name
-            ) AS sums
-        ) 
-        WHERE user_id = {user_id} or user_name = "{username}"
+                SELECT user_id, user_name, total_sum, dense_rank,
+                    ROW_NUMBER() OVER (ORDER BY dense_rank ASC) AS row_num
+                FROM (
+                    SELECT user_id, user_name, total_sum, dense_rank
+                    FROM (
+                        SELECT user_id, user_name, total_sum,
+                            ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS dense_rank
+                        FROM (
+                            SELECT user_id, user_name, SUM({league}_groups + {league}_playoffs) AS total_sum
+                            FROM DS_2024_MASTERS
+                            GROUP BY user_id, user_name
+                        ) AS sums
+                    ) AS ranks
+                ) AS ua
+            ) AS ranked_users
+            WHERE user_id = {user_id} or user_name = "{username}"
         """
-    elif type in ["korea"]:
+    elif type in ["champions"]:
         query = f"""
-        SELECT  user_id,
-                user_name,
-                total_sum as total_{league}_{type}, dense_rank as rank_{league}_{type} 
-        FROM (
-            SELECT 
-                user_id,
-                user_name,
-                total_sum,
-                (
-                    SELECT COUNT(DISTINCT total_sum) + 1
-                    FROM (
-                        SELECT 
-                            SUM({league}_groups + {league}_playoffs) AS total_sum
-                        FROM DS_2024_CHAMPIONS
-                        GROUP BY user_name
-                    ) AS ranks
-                    WHERE total_sum > sums.total_sum
-                ) AS dense_rank
+            SELECT user_name, user_id, total_sum as total_{league}_{type}, dense_rank as rank_{league}_{type}
             FROM (
-                SELECT 
-                    user_id,
-                    user_name,
-                    SUM({league}_groups + {league}_playoffs) AS total_sum
-                FROM DS_2024_CHAMPIONS
-                GROUP BY user_id, user_name
-            ) AS sums
-        ) 
-        WHERE user_id = {user_id} or user_name = "{username}"
+                SELECT user_id, user_name, total_sum, dense_rank,
+                    ROW_NUMBER() OVER (ORDER BY dense_rank ASC) AS row_num
+                FROM (
+                    SELECT user_id, user_name, total_sum, dense_rank
+                    FROM (
+                        SELECT user_id, user_name, total_sum,
+                            ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS dense_rank
+                        FROM (
+                            SELECT user_id, user_name, SUM({league}_groups + {league}_playoffs) AS total_sum
+                            FROM DS_2024_CHAMPIONS
+                            GROUP BY user_id, user_name
+                        ) AS sums
+                    ) AS ranks
+                ) AS ua
+            ) AS ranked_users
+            WHERE user_id = {user_id} or user_name = "{username}"
         """
     
     cursor.execute(query)
@@ -241,96 +158,76 @@ def get_type_sum(conn, type, username=None, user_id=None):
 
     if type in ["il1", "il2", "kickoff"]:
         query = f"""
-        SELECT  user_id,
-                user_name,
-                total_sum as total_{type}, dense_rank as rank_{type}
-        FROM (
             SELECT 
-                user_id,
                 user_name,
-                total_sum,
-                (
-                    SELECT COUNT(DISTINCT total_sum) + 1
-                    FROM (
-                        SELECT 
-                            SUM(emea) + SUM(china) + SUM(pacific) + SUM(americas)  AS total_sum
-                        FROM DS_2024_{type.upper()}
-                        GROUP BY user_name
-                    ) AS ranks
-                    WHERE total_sum > sums.total_sum
-                ) AS dense_rank
+                user_id,
+                total_sum as total_{type},
+                rank_{type}
             FROM (
                 SELECT 
                     user_id,
                     user_name,
-                    SUM(emea) + SUM(china) + SUM(pacific) + SUM(americas) AS total_sum
-                FROM DS_2024_{type.upper()}
-                GROUP BY user_id, user_name
-            ) AS sums
-        ) 
-        WHERE user_id = {user_id} or user_name = "{username}"
+                    total_sum,
+                    ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS rank_{type}
+                FROM (
+                    SELECT 
+                        user_id,
+                        user_name,
+                        SUM(emea + china + pacific + americas) AS total_sum,
+                        ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY emea + china + pacific + americas DESC) AS rank_{type}
+                    FROM DS_2024_{type.upper()}
+                    GROUP BY user_id, user_name
+                ) AS sums
+            ) AS ranked_users
+            WHERE user_id = {user_id} or user_name = "{username}"
         """
     elif type in ["masters"]:
         query = f"""
-        SELECT  user_id,
-                user_name,
-                total_sum as total_{type}, dense_rank as rank_{type}
-        FROM (
             SELECT 
-                user_id,
                 user_name,
-                total_sum,
-                (
-                    SELECT COUNT(DISTINCT total_sum) + 1
-                    FROM (
-                        SELECT 
-                            SUM(shanghai_groups + shanghai_playoffs + madrid_groups + madrid_playoffs)  AS total_sum
-                        FROM DS_2024_MASTERS
-                        GROUP BY user_name
-                    ) AS ranks
-                    WHERE total_sum > sums.total_sum
-                ) AS dense_rank
+                user_id,
+                total_sum as total_{type},
+                rank_{type}
             FROM (
                 SELECT 
                     user_id,
                     user_name,
-                    SUM(shanghai_groups + shanghai_playoffs + madrid_groups + madrid_playoffs) AS total_sum
-                FROM DS_2024_MASTERS
-                GROUP BY user_id, user_name
-            ) AS sums
-        ) 
-        WHERE user_id = {user_id} or user_name = "{username}"
+                    total_sum,
+                    ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS rank_{type}
+                FROM (
+                    SELECT 
+                        user_id,
+                        user_name,
+                        SUM(shanghai_groups + shanghai_playoffs + madrid_groups + madrid_playoffs) AS total_sum
+                    FROM DS_2024_MASTERS
+                    GROUP BY user_id, user_name
+                ) AS sums
+            ) AS ranked_users
+            WHERE user_id = {user_id} or user_name = "{username}"
         """
     elif type in ["champions"]:
         query = f"""
-        SELECT  user_id,
-                user_name,
-                total_sum as total_{type}, dense_rank as rank_{type}
-        FROM (
             SELECT 
-                user_id,
                 user_name,
-                total_sum,
-                (
-                    SELECT COUNT(DISTINCT total_sum) + 1
-                    FROM (
-                        SELECT 
-                            SUM({type}_groups + {type}_playoffs)  AS total_sum
-                        FROM DS_2024_CHAMPIONS
-                        GROUP BY user_name
-                    ) AS ranks
-                    WHERE total_sum > sums.total_sum
-                ) AS dense_rank
+                user_id,
+                total_sum as total_{type},
+                rank_{type}
             FROM (
                 SELECT 
                     user_id,
                     user_name,
-                    SUM({type}_groups + {type}_playoffs) AS total_sum
-                FROM DS_2024_CHAMPIONS
-                GROUP BY user_id, user_name
-            ) AS sums
-        ) 
-        WHERE user_id = {user_id} or user_name = "{username}"
+                    total_sum,
+                    ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS rank_{type}
+                FROM (
+                    SELECT 
+                        user_id,
+                        user_name,
+                        SUM(korea_groups + korea_playoffs) AS total_sum
+                    FROM DS_2024_CHAMPIONS
+                    GROUP BY user_id, user_name
+                ) AS sums
+            ) AS ranked_users
+            WHERE user_id = {user_id} or user_name = "{username}"
         """
     
     cursor.execute(query)
@@ -346,43 +243,17 @@ def get_all_sum(conn, username=None,user_id=None):
     cursor = conn.cursor()
 
     query = f"""
+        SELECT 
+            user_name,
+            user_id,
+            overall_total,
+            dense_rank
+        FROM (
             SELECT 
-                user_name, 
-                user_id, 
+                user_name,
+                user_id,
                 overall_total,
-                (
-                    SELECT COUNT(DISTINCT overall_total) + 1
-                    FROM (
-                        SELECT 
-                            SUM(total_sum) AS overall_total
-                        FROM (
-                            SELECT user_name, user_id, americas + emea + china + pacific AS total_sum
-                            FROM DS_2024_KICKOFF
-
-                            UNION ALL
-
-                            SELECT user_name, user_id, americas + emea + china + pacific AS total_sum
-                            FROM DS_2024_IL1
-
-                            UNION ALL
-
-                            SELECT user_name, user_id, americas + emea + china + pacific AS total_sum
-                            FROM DS_2024_IL2
-
-                            UNION ALL
-
-                            SELECT user_name, user_id, shanghai_groups + shanghai_playoffs + madrid_groups + madrid_playoffs AS total_sum
-                            FROM DS_2024_MASTERS
-
-                            UNION ALL
-
-                            SELECT user_name, user_id, korea_groups + korea_playoffs AS total_sum
-                            FROM DS_2024_CHAMPIONS
-                        ) AS all_tables
-                        GROUP BY user_name, user_id
-                    ) AS ranks
-                    WHERE overall_total > sums.overall_total
-                ) AS dense_rank
+                ROW_NUMBER() OVER (ORDER BY overall_total DESC) AS dense_rank
             FROM (
                 SELECT 
                     user_name, 
@@ -429,7 +300,8 @@ def get_all_sum(conn, username=None,user_id=None):
                 ) AS all_tables
                 GROUP BY user_name, user_id
             ) AS sums
-            WHERE user_name ="{username}" or user_id = {user_id}
+        ) AS ranked_users
+        WHERE user_id = {user_id} or user_name = "{username}"
     """
 
     cursor.execute(query)
@@ -453,10 +325,10 @@ def get_league_leaderboard(conn, league, username=None, user_id=None):
             SELECT user_name, total_{league}, rank_{league}
             FROM (
                 SELECT user_name, total_{league}, rank_{league},
-                    DENSE_RANK() OVER (ORDER BY total_{league} DESC) AS overall_rank
+                    ROW_NUMBER() OVER (ORDER BY total_{league} DESC) AS overall_rank
                 FROM (
                     SELECT user_name, user_id, COALESCE(SUM({league}), 0) AS total_{league},
-                        DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}), 0) DESC) AS rank_{league}
+                        ROW_NUMBER() OVER (ORDER BY COALESCE(SUM({league}), 0) DESC) AS rank_{league}
                     FROM (
                         SELECT user_name, user_id, {league} FROM DS_2024_KICKOFF
                         UNION ALL
@@ -478,7 +350,7 @@ def get_league_leaderboard(conn, league, username=None, user_id=None):
                     ROW_NUMBER() OVER (ORDER BY total_{league} DESC) AS row_num
                 FROM (
                     SELECT user_name, user_id, COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
-                        DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_{league}
+                        ROW_NUMBER() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_{league}
                     FROM (
                         SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_MASTERS
                     ) AS all_{league}
@@ -495,7 +367,7 @@ def get_league_leaderboard(conn, league, username=None, user_id=None):
                     ROW_NUMBER() OVER (ORDER BY total_{league} DESC) AS row_num
                 FROM (
                     SELECT user_name, user_id, COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
-                        DENSE_RANK() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_{league}
+                        ROW_NUMBER() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_{league}
                     FROM (
                         SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_CHAMPIONS
                     ) AS all_{league}
@@ -535,7 +407,7 @@ def get_specific_leaderboard(conn, league, type, username=None, user_id=None):
                     SELECT user_id, user_name, total_sum, dense_rank
                     FROM (
                         SELECT user_id, user_name, total_sum,
-                            DENSE_RANK() OVER (ORDER BY total_sum DESC) AS dense_rank
+                            ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS dense_rank
                         FROM (
                             SELECT user_id, user_name, SUM({league}) AS total_sum
                             FROM DS_2024_{type.upper()}
@@ -556,7 +428,7 @@ def get_specific_leaderboard(conn, league, type, username=None, user_id=None):
                     SELECT user_id, user_name, total_sum, dense_rank
                     FROM (
                         SELECT user_id, user_name, total_sum,
-                            DENSE_RANK() OVER (ORDER BY total_sum DESC) AS dense_rank
+                            ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS dense_rank
                         FROM (
                             SELECT user_id, user_name, SUM({league}_groups + {league}_playoffs) AS total_sum
                             FROM DS_2024_MASTERS
@@ -577,7 +449,7 @@ def get_specific_leaderboard(conn, league, type, username=None, user_id=None):
                     SELECT user_id, user_name, total_sum, dense_rank
                     FROM (
                         SELECT user_id, user_name, total_sum,
-                            DENSE_RANK() OVER (ORDER BY total_sum DESC) AS dense_rank
+                            ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS dense_rank
                         FROM (
                             SELECT user_id, user_name, SUM({league}_groups + {league}_playoffs) AS total_sum
                             FROM DS_2024_CHAMPIONS
@@ -614,13 +486,13 @@ def get_type_leaderboard(conn, type, username=None, user_id=None):
                     user_id,
                     user_name,
                     total_sum,
-                    DENSE_RANK() OVER (ORDER BY total_sum DESC) AS rank_{type}
+                    ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS rank_{type}
                 FROM (
                     SELECT 
                         user_id,
                         user_name,
                         SUM(emea + china + pacific + americas) AS total_sum,
-                        DENSE_RANK() OVER (PARTITION BY user_id ORDER BY emea + china + pacific + americas DESC) AS rank_{type}
+                        ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY emea + china + pacific + americas DESC) AS rank_{type}
                     FROM DS_2024_{type.upper()}
                     GROUP BY user_id, user_name
                 ) AS sums
@@ -638,7 +510,7 @@ def get_type_leaderboard(conn, type, username=None, user_id=None):
                     user_id,
                     user_name,
                     total_sum,
-                    DENSE_RANK() OVER (ORDER BY total_sum DESC) AS rank_{type}
+                    ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS rank_{type}
                 FROM (
                     SELECT 
                         user_id,
@@ -661,7 +533,7 @@ def get_type_leaderboard(conn, type, username=None, user_id=None):
                     user_id,
                     user_name,
                     total_sum,
-                    DENSE_RANK() OVER (ORDER BY total_sum DESC) AS rank_{type}
+                    ROW_NUMBER() OVER (ORDER BY total_sum DESC) AS rank_{type}
                 FROM (
                     SELECT 
                         user_id,
