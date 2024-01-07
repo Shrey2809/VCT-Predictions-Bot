@@ -699,7 +699,7 @@ def get_all_leaderboard(conn, username=None,user_id=None):
                 user_name,
                 user_id,
                 overall_total,
-                DENSE_RANK() OVER (ORDER BY overall_total DESC) AS dense_rank
+                ROW_NUMBER() OVER (ORDER BY overall_total DESC) AS dense_rank
             FROM (
                 SELECT 
                     user_name, 
