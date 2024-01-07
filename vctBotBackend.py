@@ -1,16 +1,8 @@
-import discord
+import discord, logging, aiohttp, json, random, csv, re, os, sqlite3
 from discord.ext import commands
-import logging
-import aiohttp
-import json
 import pandas as pd
 from tabulate import tabulate
-import random
-import csv
-import re
-import os
-import sqlite3
-from vctBotHelpers import get_league_sum, get_specific_sum, get_type_sum, get_all_sum, get_all_leaderboard, get_league_leaderboard, get_specific_leaderboard, get_type_leaderboard
+from vctBotHelpers import *
 
 class vctBotBackend(commands.AutoShardedBot):
     # Initialize the bot
