@@ -31,7 +31,7 @@ def get_league_sum(conn, league, username=None, user_id=None):
             SELECT user_name, total_{league}, rank_{league}
             FROM (
                 SELECT user_name, user_id, total_{league}, rank_{league},
-                    ROW_NUMBER() OVER (ORDER BY total_{league} DESC) AS row_num
+                    ROW_NUMBER() OVER (ORDER BY total_{league} DESC, {league}_playoffs DESC) AS row_num
                 FROM (
                     SELECT user_name, user_id, COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
                         ROW_NUMBER() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_{league}
@@ -41,14 +41,14 @@ def get_league_sum(conn, league, username=None, user_id=None):
                     GROUP BY user_name, user_id
                 ) AS ua
             ) AS ranked_users
-            WHERE user_name = '{username}' or user_id = {user_id};
+            WHERE user_name = '{username}' OR user_id = {user_id};
         """
     elif league in ["korea"]:
         query = f"""
             SELECT user_name, total_{league}, rank_{league}
             FROM (
                 SELECT user_name, user_id, total_{league}, rank_{league},
-                    ROW_NUMBER() OVER (ORDER BY total_{league} DESC) AS row_num
+                    ROW_NUMBER() OVER (ORDER BY total_{league} DESC, {league}_playoffs DESC) AS row_num
                 FROM (
                     SELECT user_name, user_id, COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
                         ROW_NUMBER() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_{league}
@@ -58,7 +58,7 @@ def get_league_sum(conn, league, username=None, user_id=None):
                     GROUP BY user_name, user_id
                 ) AS ua
             ) AS ranked_users
-            WHERE user_name = '{username}' or user_id = {user_id};       
+            WHERE user_name = '{username}' OR user_id = {user_id}; 
         """
     
     # Execute the query with the provided username or user_id
@@ -345,26 +345,26 @@ def get_league_leaderboard(conn, league, username=None, user_id=None):
     elif league in ["madrid", "shanghai"]:
         query = f"""
             SELECT user_name, total_{league}, rank_{league}
-            FROM (
-                SELECT user_name, total_{league}, rank_{league},
-                    ROW_NUMBER() OVER (ORDER BY total_{league} DESC) AS row_num
                 FROM (
-                    SELECT user_name, user_id, COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
-                        ROW_NUMBER() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_{league}
+                    SELECT user_name, user_id, total_{league}, rank_{league},
+                        ROW_NUMBER() OVER (ORDER BY total_{league} DESC, {league}_playoffs DESC) AS row_num
                     FROM (
-                        SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_MASTERS
-                    ) AS all_{league}
-                    GROUP BY user_name, user_id
-                ) AS ua
-            ) AS ranked_users
-            WHERE row_num <= 10; -- Filter for the first 10 rows based on rankings
+                        SELECT user_name, user_id, COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
+                            ROW_NUMBER() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_{league}
+                        FROM (
+                            SELECT user_name, user_id, {league}_groups, {league}_playoffs FROM DS_2024_MASTERS
+                        ) AS all_{league}
+                        GROUP BY user_name, user_id
+                    ) AS ua
+                ) AS ranked_users
+                WHERE row_num <= 10; -- Filter for the first 10 rows based on rankings
         """
     elif league in ["korea"]:
         query = f"""
             SELECT user_name, total_{league}, rank_{league}
             FROM (
-                SELECT user_name, total_{league}, rank_{league},
-                    ROW_NUMBER() OVER (ORDER BY total_{league} DESC) AS row_num
+                SELECT user_name, user_id, total_{league}, rank_{league},
+                    ROW_NUMBER() OVER (ORDER BY total_{league} DESC, {league}_playoffs DESC) AS row_num
                 FROM (
                     SELECT user_name, user_id, COALESCE(SUM({league}_groups + {league}_playoffs), 0) AS total_{league},
                         ROW_NUMBER() OVER (ORDER BY COALESCE(SUM({league}_groups + {league}_playoffs), 0) DESC) AS rank_{league}
