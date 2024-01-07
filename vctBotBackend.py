@@ -104,22 +104,23 @@ class vctBotBackend(commands.AutoShardedBot):
         else:
             return None
 
+    # Parse the rank string
     def parse_rank_string(self, input_string):
         input_string = input_string.lower()
-        all             = re.match(r"\+myrank\s+all", input_string)
-        league_or_type  = re.match(r"\+myrank\s+(\w+)", input_string)
-        league_and_type = re.match(r"\+myrank\s+(\w+)\s+(\w+)", input_string)
-        latest          = re.match(r"\+myrank", input_string)
+        all             = re.match(r"\+rank\s+all", input_string)
+        league_or_type  = re.match(r"\+rank\s+(\w+)", input_string)
+        league_and_type = re.match(r"\+rank\s+(\w+)\s+(\w+)", input_string)
+        latest          = re.match(r"\+rank", input_string)
 
         if all:
             return {"Command": "rank", "Type": "all"}
         
         elif league_and_type:
             if (league_and_type.group(1) in ["china", "pacific", "americas", "emea", "madrid", "korea", "shanghai"] and 
-                    league_and_type.group(2) in ["il1", "il2", "kickoffs", "masters", "champions"]):
+                    league_and_type.group(2) in ["il1", "il2", "kickoff", "masters", "champions"]):
                 return {"Command": "rank", "Type": "specific", "league": league_and_type.group(1), "type": league_and_type.group(2)}
             elif (league_and_type.group(2) in ["china", "pacific", "americas", "emea", "madrid", "korea", "shanghai"] and 
-                    league_and_type.group(1) in ["il1", "il2", "kickoffs", "masters", "champions"]):
+                    league_and_type.group(1) in ["il1", "il2", "kickoff", "masters", "champions"]):
                 return {"Command": "rank", "Type": "specific", "league": league_and_type.group(2), "type": league_and_type.group(1)}
             else:
                 return {"Command": "rank", "Type": "404"}
@@ -127,7 +128,7 @@ class vctBotBackend(commands.AutoShardedBot):
         elif league_or_type:
             if league_or_type.group(1) in ["china", "pacific", "americas", "emea", "madrid", "korea", "shanghai"]:
                 return {"Command": "rank", "Type": "league", "league": league_or_type.group(1)}
-            elif league_or_type.group(1) in ["il1", "il2", "kickoffs", "masters", "champions"]:
+            elif league_or_type.group(1) in ["il1", "il2", "kickoff", "masters", "champions"]:
                 return {"Command": "rank", "Type": "type", "type": league_or_type.group(1)}
             else:
                 return {"Command": "rank", "Type": "404"}
@@ -136,14 +137,6 @@ class vctBotBackend(commands.AutoShardedBot):
             return {"Command": "rank", "Type": "latest"}
         else:
             return {"Command": "rank", "Type": "404"}
-   
-    def get_file_name(self, message_content, server_id):
-        parsed_title = self.parse_poll_string(message_content)
-        print (parsed_title)
-        if parsed_title:
-            file_name = f'{parsed_title["League"]}_{parsed_title["Type"]}_{parsed_title["Day"]}_{server_id}'
-            return file_name
-        return None  
 
     # Load all the teams into the team1 and team2 lists
     def get_team_lists(self, title):
@@ -167,7 +160,6 @@ class vctBotBackend(commands.AutoShardedBot):
             i += 1
         file.close()
 
-
     # Get the emote for the team
     def get_team_emote(self, team, i):
         try:
@@ -180,7 +172,7 @@ class vctBotBackend(commands.AutoShardedBot):
     def tabulate_df(self, df, userInfo, item):
         df = df[["Rank", "Points"]]
         table = tabulate(df, headers='keys', tablefmt="simple_outline", showindex="never")
-        embed = discord.Embed(title=f"{userInfo}'s Rank for {item.upper()}", color=self.generate_random_color())
+        embed = discord.Embed(title=f"{userInfo}'s rank for {item.upper()}", color=self.generate_random_color())
         embed.add_field(name='\u200b', value=f'```\n{table}\n```')
         return embed
 
@@ -317,7 +309,7 @@ class vctBotBackend(commands.AutoShardedBot):
     def get_specific_sum(self, conn, league, type, username=None, user_id=None):
         cursor = conn.cursor()
 
-        if type in ["il1", "il2", "kickoffs"]:
+        if type in ["il1", "il2", "kickoff"]:
             query = f"""
             SELECT  user_id,
                     user_name,
@@ -525,6 +517,106 @@ class vctBotBackend(commands.AutoShardedBot):
         df = df.rename(columns={f'total_{type}': 'Points', f'rank_{type}': 'Rank'})
         return df
 
+    # Get points and rank for a specific user for all year long
+    def get_all_sum(self, conn, username=None,user_id=None):
+        cursor = conn.cursor()
+
+        query = f"""
+                SELECT 
+                    user_name, 
+                    user_id, 
+                    overall_total,
+                    (
+                        SELECT COUNT(DISTINCT overall_total) + 1
+                        FROM (
+                            SELECT 
+                                SUM(total_sum) AS overall_total
+                            FROM (
+                                SELECT user_name, user_id, americas + emea + china + pacific AS total_sum
+                                FROM DS_2024_KICKOFF
+
+                                UNION ALL
+
+                                SELECT user_name, user_id, americas + emea + china + pacific AS total_sum
+                                FROM DS_2024_IL1
+
+                                UNION ALL
+
+                                SELECT user_name, user_id, americas + emea + china + pacific AS total_sum
+                                FROM DS_2024_IL2
+
+                                UNION ALL
+
+                                SELECT user_name, user_id, shanghai_groups + shanghai_playoffs + madrid_groups + madrid_playoffs AS total_sum
+                                FROM DS_2024_MASTERS
+
+                                UNION ALL
+
+                                SELECT user_name, user_id, korea_groups + korea_playoffs AS total_sum
+                                FROM DS_2024_CHAMPIONS
+                            ) AS all_tables
+                            GROUP BY user_name, user_id
+                        ) AS ranks
+                        WHERE overall_total > sums.overall_total
+                    ) AS dense_rank
+                FROM (
+                    SELECT 
+                        user_name, 
+                        user_id, 
+                        SUM(total_sum) AS overall_total
+                    FROM (
+                        SELECT 
+                            user_name, 
+                            user_id, 
+                            americas + emea + china + pacific AS total_sum
+                        FROM DS_2024_KICKOFF
+
+                        UNION ALL
+
+                        SELECT 
+                            user_name, 
+                            user_id, 
+                            americas + emea + china + pacific AS total_sum
+                        FROM DS_2024_IL1
+
+                        UNION ALL
+
+                        SELECT 
+                            user_name, 
+                            user_id, 
+                            americas + emea + china + pacific AS total_sum
+                        FROM DS_2024_IL2
+
+                        UNION ALL
+
+                        SELECT 
+                            user_name, 
+                            user_id, 
+                            shanghai_groups + shanghai_playoffs + madrid_groups + madrid_playoffs AS total_sum
+                        FROM DS_2024_MASTERS
+
+                        UNION ALL
+
+                        SELECT 
+                            user_name, 
+                            user_id, 
+                            korea_groups + korea_playoffs AS total_sum
+                        FROM DS_2024_CHAMPIONS
+                    ) AS all_tables
+                    GROUP BY user_name, user_id
+                ) AS sums
+                WHERE user_name ="{username}" or user_id = {user_id}
+        """
+
+        cursor.execute(query)
+        result = cursor.fetchall()
+        cursor.close()
+
+        df = pd.DataFrame(result, columns=['user_name', 'user_id', 'overall_total', 'dense_rank'])
+        df = df.rename(columns={'overall_total': 'Points', 'dense_rank': 'Rank'})
+
+        return df
+
     # Generate a random 24-bit color code
     def generate_random_color(self):
         color = random.randint(0, 0xFFFFFF)  # 0x000000 to 0xFFFFFF (0 to 16777215 in decimal)
@@ -666,7 +758,6 @@ class vctBotBackend(commands.AutoShardedBot):
             if message.content.startswith("+load"):
                 messageContent = message.clean_content
                 titleDict = self.parse_poll_string(messageContent)
-                title = self.get_file_name(messageContent, message.guild.id)
                 if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
                     self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.csv'''
                     id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.txt'''
@@ -717,7 +808,6 @@ class vctBotBackend(commands.AutoShardedBot):
         if message.content.startswith("+build"):
             messageContent = message.clean_content
             titleDict = self.parse_poll_string(messageContent)
-            title = self.get_file_name(messageContent, message.guild.id)
             if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
                 self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.csv'''
                 id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.txt'''
@@ -756,8 +846,7 @@ class vctBotBackend(commands.AutoShardedBot):
             dictOfFile = self.parse_poll_string(messageContent)
             print (f"File and list created: {dictOfFile}")
             self.logger.info(f"File and list created: {dictOfFile}")
-
-        
+    
         # Close a specific game <+close GameNumber>
         if message.content.startswith("+close"):
             task  = message.content[len("+close "):]
@@ -854,7 +943,6 @@ class vctBotBackend(commands.AutoShardedBot):
         if message.content.startswith("+record"):
             messageContent = message.clean_content
             titleDict = self.parse_poll_string(messageContent)
-            title = self.get_file_name(messageContent, message.guild.id)
             if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
                 self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.csv'''
                 id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.txt'''
@@ -991,7 +1079,8 @@ class vctBotBackend(commands.AutoShardedBot):
 
             await message.channel.send(f"{dictOfFile} recorded")                
 
-        if message.content.startswith("+myrank"):
+        # Get the rank for a specific input <+rank {Type} {League}>
+        if message.content.startswith("+rank"):
             messageContent = message.clean_content
             guildId  = message.guild.id
             userName = message.author.name
@@ -1036,26 +1125,16 @@ class vctBotBackend(commands.AutoShardedBot):
                 
             elif outputDict["Type"] == 'all':
                 print(f"ALL TYPE: {outputDict}")
+
+                df = self.get_all_sum(conn, userName, userId)
+                embed = self.tabulate_df(df, userName, "2024")
+                await message.channel.send(embed=embed)
             elif outputDict["Type"] == '404':
                 print(f"FALSE TYPE: {outputDict}")
 
 
             conn.close()
             
-
-
-
-        # Show a user their rank <+rank>
-        if message.content.startswith("+rank"):
-            print(f"Username: {message.author.name}")
-            self.logger.info(f"Rank request by: {message.author.name}")
-            tempdf = self.get_df_based_on_name(message.author.name)
-            tempdf = tempdf[self.columns_to_show]
-            table = tabulate(tempdf, headers='keys', tablefmt="simple_outline", showindex="never")
-            
-            embed = discord.Embed(title=f"{message.author.name}'s Rank", color=self.generate_random_color())
-            embed.add_field(name='\u200b', value=f'```\n{table}\n```')
-            await message.channel.send(embed=embed)
 
     # Start the bot
     def run(self):
