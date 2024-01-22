@@ -62,7 +62,7 @@ def process_data(guild_id, league, game_type, day, playoffs_flag = False):
             user_scores[name] = get_old_score(cursor, league, game_type, name, user_id, playoffs_flag)
         for index, row in df.iterrows():
             if index != 0:
-                if row[name] == winner_scores['winners'][row['MatchIDs']]:
+                if row[name] == winner_scores['winners'][row['MatchIDs']] and winner_scores['record'][row['MatchIDs']] == 'Record':
                     user_scores[name] += winner_scores['scores'][row['MatchIDs']]
         
 

@@ -247,6 +247,7 @@ class vctBotBackend(commands.AutoShardedBot):
                 day       = titleDict["Day"]
                 winner    = {}
                 score     = {}
+                record    = {}
 
                 self.get_team_lists(title)
                 self.maxGames = len(self.team1)
@@ -280,6 +281,7 @@ class vctBotBackend(commands.AutoShardedBot):
 
                     winner[f"MATCH {j}"] = f"{self.team1[j-1]}/{self.team2[j-1]}"
                     score[f"MATCH {j}"]  = self.points[j-1]
+                    record[f"MATCH {j}"] = f"Record/NotRecorded/Recorded"
 
                     i = 0
                     final_options = [] 
@@ -315,6 +317,7 @@ class vctBotBackend(commands.AutoShardedBot):
                 winner_score = {}
                 winner_score["scores"] = score
                 winner_score["winners"] = winner
+                winner_score["record"] = record
                 with open(f'winner_scores/{out_title}.json', 'w') as json_file:
                     json.dump(winner_score, json_file, indent=4)
 
