@@ -219,6 +219,7 @@ class vctBotBackend(commands.AutoShardedBot):
     # Message displayed when bot is started
     async def on_ready(self):
         self.http_session = aiohttp.ClientSession()
+        await self.change_presence(activity=discord.Game(name="use +help for more info"))
         print("-------------")
         print("|VCT Poll Bot|")
         print("-------------")
@@ -233,6 +234,7 @@ class vctBotBackend(commands.AutoShardedBot):
         if message.author.name in self.admin_users:
             # Create polls from a file  <+poll LEAGUE DAY TYPE}>
             if message.content.startswith("+poll"):
+                self.logger.info(f"Message from {message.author}: {message.content}")
                 messageContent = message.clean_content
                 server_id = message.guild.id if message.guild else None
         
@@ -328,6 +330,7 @@ class vctBotBackend(commands.AutoShardedBot):
 
             # Create a top 10 list of standings <+leaderboard>
             if message.content.startswith("+leaderboard"):
+                self.logger.info(f"Message from {message.author}: {message.content}")
                 messageContent = message.clean_content
                 guildId  = message.guild.id
                 userName = message.author.name
@@ -379,16 +382,16 @@ class vctBotBackend(commands.AutoShardedBot):
 
                 elif outputDict["Type"] == '404':
                     print(f"FALSE TYPE: {outputDict}")
-
-
                 conn.close()
             
             # Check file names <+check>
             if message.content.startswith("+check"):
+                self.logger.info(f"Message from {message.author}: {message.content}")
                 await message.channel.send(f'File name loaded: {self.fname}')
 
             # Load a specific file for the list of IDs <+load {Title}>
             if message.content.startswith("+load"):
+                self.logger.info(f"Message from {message.author}: {message.content}")
                 messageContent = message.clean_content
                 titleDict = self.parse_poll_string(messageContent)
                 if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
@@ -405,6 +408,7 @@ class vctBotBackend(commands.AutoShardedBot):
 
             # Setting winner for game <+setwinner {DayNumber} {GameNumber} {TeamName} {Score}>
             if message.content.startswith("+setwinner"):
+                self.logger.info(f"Message from {message.author}: {message.content}")
                 pattern = r"\+setwinner (\d+) (\d+) (\w+) (\d+)"
 
                 # Use re.match to search for the pattern in the incoming message
@@ -431,6 +435,7 @@ class vctBotBackend(commands.AutoShardedBot):
                 
             # Exit the bot <+end> or <+exit>
             if message.content.startswith("+end") or message.content.startswith("+exit"):
+                self.logger.info(f"Message from {message.author}: {message.content}")
                 self.logger.info("Bot's going offline!")
                 await message.channel.send("Bot's going offline!")
                 await self.close()
@@ -439,6 +444,7 @@ class vctBotBackend(commands.AutoShardedBot):
         # General user access API
         # Build the base file with the names of all the users <+build {Title}>
         if message.content.startswith("+build"):
+            self.logger.info(f"Message from {message.author}: {message.content}")
             messageContent = message.clean_content
             titleDict = self.parse_poll_string(messageContent)
             if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
@@ -482,6 +488,7 @@ class vctBotBackend(commands.AutoShardedBot):
     
         # Close a specific game <+close GameNumber>
         if message.content.startswith("+close"):
+            self.logger.info(f"Message from {message.author}: {message.content}")
             task  = message.content[len("+close "):]
             i     = int(task)
             print (self.messageIDs[i-1])
@@ -574,6 +581,7 @@ class vctBotBackend(commands.AutoShardedBot):
 
         # Record all games in a set of polls from the file <+record {Title}>
         if message.content.startswith("+record"):
+            self.logger.info(f"Message from {message.author}: {message.content}")
             messageContent = message.clean_content
             titleDict = self.parse_poll_string(messageContent)
             if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
@@ -714,6 +722,7 @@ class vctBotBackend(commands.AutoShardedBot):
 
         # Get the rank for a specific input <+rank {Type} {League}>
         if message.content.startswith("+rank"):
+            self.logger.info(f"Message from {message.author}: {message.content}")
             messageContent = message.clean_content
             guildId  = message.guild.id
             userName = message.author.name
@@ -768,7 +777,14 @@ class vctBotBackend(commands.AutoShardedBot):
 
             conn.close()
             
+        # Helper message <+help>
+        if message.content.startswith("+help"):
+            self.logger.info(f"Message from {message.author}: {message.content}")
+            with (open("etc/help.txt", 'r')) as file:
+                helpMsg = file.read()
+            await message.channel.send(helpMsg)
 
+        
     # Start the bot
     def run(self):
         super().run(self.config["discord_token"], reconnect=True)
