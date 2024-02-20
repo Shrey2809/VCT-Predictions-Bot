@@ -46,7 +46,7 @@ class vctBotBackend(commands.AutoShardedBot):
         self.leagues = {"CHINA": 0xFC2659,
                             "PACIFIC": 0x01d2d7,
                             "AMERICAS": 0xff570c,
-                            "EMEA": 0xdc3030,
+                            "EMEA": 0xd5ff1d,
                             "MASTERS": 0x6f4acc,
                             "CHAMPIONS": 0xc5b174}
 

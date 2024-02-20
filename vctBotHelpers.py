@@ -196,7 +196,7 @@ def get_type_sum(conn, type, username=None, user_id=None):
     result = cursor.fetchall()
     cursor.close()
     conn.close()
-    df = pd.DataFrame(result, columns=['user_id', 'user_name', f'total_{type}', f'rank_{type}'])
+    df = pd.DataFrame(result, columns=['user_name', f'total_{type}', f'rank_{type}'])
     df = df.rename(columns={f'total_{type}': 'Points', f'rank_{type}': 'Rank'})
     return df
 
@@ -232,7 +232,7 @@ def get_all_sum(conn, username=None,user_id=None):
     result = cursor.fetchall()
     cursor.close()
 
-    df = pd.DataFrame(result, columns=['user_name', 'user_id', 'overall_total', 'dense_rank'])
+    df = pd.DataFrame(result, columns=['user_name', 'overall_total', 'dense_rank'])
     df = df.rename(columns={'overall_total': 'Points', 'dense_rank': 'Rank'})
 
     return df

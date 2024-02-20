@@ -13,7 +13,6 @@ def get_old_score(cursor, league, game_type, user, user_id, playoffs_flag = Fals
             query = f'SELECT {game_type}_{league}_groups FROM DS_VCT_2024 WHERE user_id = ? and user_name = ?'
     else:
         query = f'SELECT {game_type}_{league} FROM DS_VCT_2024 WHERE user_id = ? and user_name = ?'
-    print(query)
     cursor.execute(query, (user_id, user))
     old_score = cursor.fetchone()
     if old_score == None:
@@ -46,10 +45,10 @@ def process_data(guild_id, league, game_type, day, playoffs_flag = False):
 
     names = df.columns
 
-    cursor.execute(f'SELECT * FROM DS_2024_FILES_PROCESSED WHERE file_name = ?', (record_file_name,))
-    if cursor.fetchone() != None:
-        print('File already processed')
-        exit()
+    # cursor.execute(f'SELECT * FROM DS_2024_FILES_PROCESSED WHERE file_name = ?', (record_file_name,))
+    # if cursor.fetchone() != None:
+    #     print('File already processed')
+    #     exit()
 
     user_scores = {}  # Dictionary to store user scores
 
