@@ -36,6 +36,9 @@ def process_data(guild_id, league, game_type, day, playoffs_flag = False):
     else:
         record_file_name = f'/home/ubuntu/VCT BOT/Records/2024/{guild_id}/{league}/{game_type}/DAY{day}.csv'
         winner_scores_file_name = f'/home/ubuntu/VCT BOT/winner_scores/2024/{guild_id}/{league}/{game_type}/DAY{day}.json'
+        
+    print(record_file_name)
+    print(winner_scores_file_name)
 
     # Read record file and winner scores JSON file
     df = pd.read_csv(record_file_name)

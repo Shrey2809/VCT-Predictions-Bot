@@ -1,0 +1,17 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1,
+        "MATCH 3": 1
+    },
+    "winners": {
+        "MATCH 1": "Gen.G/Team Secret",
+        "MATCH 2": "ZETA DIVISION/Team Secret",
+        "MATCH 3": "Gen.G/ZETA DIVISION"
+    },
+    "record": {
+        "MATCH 1": "Record/NotRecorded/Recorded",
+        "MATCH 2": "Record/NotRecorded/Recorded",
+        "MATCH 3": "Record/NotRecorded/Recorded"
+    }
+}
