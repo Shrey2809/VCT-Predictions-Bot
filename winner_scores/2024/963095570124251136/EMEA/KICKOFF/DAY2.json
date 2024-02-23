@@ -8,16 +8,16 @@
     },
     "winners": {
         "MATCH 1": "Team Heretics",
-        "MATCH 2": "Karmine Corp",
+        "MATCH 2": "FUT Esports",
         "MATCH 3": "Natus Vincere",
-        "MATCH 4": "Team Liquid",
-        "MATCH 5": "Team Vitality"
+        "MATCH 4": "KOI",
+        "MATCH 5": "Team Vitality/Fnatic"
     },
     "record": {
         "MATCH 1": "Recorded",
         "MATCH 2": "Recorded",
         "MATCH 3": "Recorded",
         "MATCH 4": "Recorded",
-        "MATCH 5": "Recorded"
+        "MATCH 5": "Record/NotRecorded/Recorded"
     }
 }
