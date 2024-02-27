@@ -1,0 +1,17 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1,
+        "MATCH 3": 1
+    },
+    "winners": {
+        "MATCH 1": "Team Vitality",
+        "MATCH 2": "Karmine Corp",
+        "MATCH 3": "KOI"
+    },
+    "record": {
+        "MATCH 1": "Recorded",
+        "MATCH 2": "Record",
+        "MATCH 3": "Record"
+    }
+}
