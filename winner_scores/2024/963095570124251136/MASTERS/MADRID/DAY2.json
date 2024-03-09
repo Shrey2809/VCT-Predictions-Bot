@@ -1,0 +1,14 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1
+    },
+    "winners": {
+        "MATCH 1": "Sentinels/Team Heretics",
+        "MATCH 2": "Edward Gaming/Paper Rex"
+    },
+    "record": {
+        "MATCH 1": "Record/NotRecorded/Recorded",
+        "MATCH 2": "Record/NotRecorded/Recorded"
+    }
+}
