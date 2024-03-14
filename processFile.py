@@ -6,7 +6,7 @@ import sys
 
 # Get old score from database and if row doesn't exist, enter data into the table
 def get_old_score(cursor, league, game_type, user, user_id, playoffs_flag = False):
-    if game_type in ["masters", "champions"]:
+    if game_type in ["MASTERS", "CHAMPIONS", "MADRID", "SHANGHAI", "KOREA"]:
         if playoffs_flag is True:
             query = f'SELECT {game_type}_{league}_playoffs FROM DS_VCT_2024 WHERE user_id = ? and user_name = ?'
         else:
@@ -34,8 +34,8 @@ def process_data(guild_id, league, game_type, day, playoffs_flag = False):
         record_file_name = f'/home/ubuntu/VCT BOT/Records/2024/{guild_id}/{league}/{game_type}/WEEK{day}.csv'
         winner_scores_file_name = f'/home/ubuntu/VCT BOT/winner_scores/2024/{guild_id}/{league}/{game_type}/WEEK{day}.json'
     else:
-        record_file_name = f'/home/ubuntu/VCT BOT/Records/2024/{guild_id}/{league}/{game_type}/DAY{day}.csv'
-        winner_scores_file_name = f'/home/ubuntu/VCT BOT/winner_scores/2024/{guild_id}/{league}/{game_type}/DAY{day}.json'
+        record_file_name = f'/home/ubuntu/VCT BOT/Records/2024/{guild_id}/{game_type}/{league}/DAY{day}.csv'
+        winner_scores_file_name = f'/home/ubuntu/VCT BOT/winner_scores/2024/{guild_id}/{game_type}/{league}/DAY{day}.json'
         
     print(record_file_name)
     print(winner_scores_file_name)
@@ -71,7 +71,8 @@ def process_data(guild_id, league, game_type, day, playoffs_flag = False):
     for item in user_scores:
         specific_row = df.loc[df['MatchIDs'] == 'UserIDs']
         user_id = specific_row[item].tolist()[0]
-        if game_type in ["masters", "champions"]:
+        print(game_type, league, user_scores[item], user_id, item, playoffs_flag)
+        if game_type in ["MASTERS", "CHAMPIONS", "MADRID", "SHANGHAI", "KOREA"]:
             if playoffs_flag is True:
                 query = f'UPDATE DS_VCT_2024 SET {game_type}_{league}_playoffs = {user_scores[item]} WHERE user_id = {user_id}' 
             else:
@@ -87,37 +88,37 @@ def process_data(guild_id, league, game_type, day, playoffs_flag = False):
     conn.close()
 
 
-try:
-    if len(sys.argv) >= 6:
-        guild_id = sys.argv[1]
-        league = sys.argv[2]
-        game_type = sys.argv[3]
-        day = sys.argv[4]
+# try:
+if len(sys.argv) >= 6:
+    guild_id = sys.argv[1]
+    league = sys.argv[2]
+    game_type = sys.argv[3]
+    day = sys.argv[4]
 
-        # Check if playoffs flag is provided
-        if len(sys.argv) > 5 and sys.argv[5] == "--playoffs":
-            playoffs_flag = True
-        else:
-            playoffs_flag = False
-
+    # Check if playoffs flag is provided
+    if len(sys.argv) > 5 and sys.argv[5] == "--playoffs":
+        playoffs_flag = True
     else:
-        # If guild_id is not provided, use a default value
-        guild_id = "963095570124251136"
-        league = sys.argv[1]
-        game_type = sys.argv[2]
-        day = sys.argv[3]
-        # Check if playoffs flag is provided
-        if len(sys.argv) > 4 and sys.argv[4] == "--playoffs":
-            playoffs_flag = True
-        else:
-            
-            playoffs_flag = False
+        playoffs_flag = False
+
+else:
+    # If guild_id is not provided, use a default value
+    guild_id = "963095570124251136"
+    league = sys.argv[1]
+    game_type = sys.argv[2]
+    day = sys.argv[3]
+    # Check if playoffs flag is provided
+    if len(sys.argv) > 4 and sys.argv[4] == "--playoffs":
+        playoffs_flag = True
+    else:
+        
+        playoffs_flag = False
 
     print(f"Processing data for {league} {game_type} {day} {playoffs_flag}")
     process_data(guild_id, league, game_type, day, playoffs_flag)
 
-except Exception as e:
-    print(f"\nProcess failed: {type(e).__name__}")
+# except Exception as e:
+#     print(f"\nProcess failed: {type(e).__name__}")
 
 # UNIT TEST CODE
 # conn          = sqlite3.connect(f'VCT_2024_1042862967072501860.db')
