@@ -1,11 +1,11 @@
 {
     "scores": {
-        "MATCH 1": 1,
-        "MATCH 2": 1
+        "MATCH 1": 2,
+        "MATCH 2": 2
     },
     "winners": {
-        "MATCH 1": "Sentinels",
-        "MATCH 2": "Edward Gaming"
+        "MATCH 1": "Gen.G",
+        "MATCH 2": "Sentinels"
     },
     "record": {
         "MATCH 1": "Recorded",
