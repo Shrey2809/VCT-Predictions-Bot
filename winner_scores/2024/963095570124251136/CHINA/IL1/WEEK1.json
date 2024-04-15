@@ -1,0 +1,26 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1,
+        "MATCH 3": 1,
+        "MATCH 4": 1,
+        "MATCH 5": 1,
+        "MATCH 6": 1
+    },
+    "winners": {
+        "MATCH 1": "Bilibili Gaming",
+        "MATCH 2": "Titan Esports Club",
+        "MATCH 3": "All Gamers",
+        "MATCH 4": "Edward Gaming",
+        "MATCH 5": "Trace Esports",
+        "MATCH 6": "FunPlus Phoenix"
+    },
+    "record": {
+        "MATCH 1": "Recorded",
+        "MATCH 2": "Recorded",
+        "MATCH 3": "Recorded",
+        "MATCH 4": "Recorded",
+        "MATCH 5": "Recorded",
+        "MATCH 6": "Recorded"
+    }
+}
