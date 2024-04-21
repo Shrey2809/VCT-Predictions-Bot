@@ -11,13 +11,13 @@
         "MATCH 2": "Leviatan",
         "MATCH 3": "KRU Esports",
         "MATCH 4": "NRG",
-        "MATCH 5": "Cloud9/Evil Geniuses"
+        "MATCH 5": "Cloud9"
     },
     "record": {
         "MATCH 1": "Recorded",
         "MATCH 2": "Recorded",
         "MATCH 3": "Recorded",
         "MATCH 4": "Recorded",
-        "MATCH 5": "Record/NotRecorded/Recorded"
+        "MATCH 5": "Recorded"
     }
 }
