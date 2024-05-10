@@ -7,17 +7,17 @@
         "MATCH 5": 1
     },
     "winners": {
-        "MATCH 1": "Sentinels/FURIA Esports",
-        "MATCH 2": "NRG/100 Thieves",
-        "MATCH 3": "KRU Esports/Leviatan",
-        "MATCH 4": "Cloud9/MIBR",
-        "MATCH 5": "G2 Esports/LOUD"
+        "MATCH 1": "Sentinels",
+        "MATCH 2": "100 Thieves",
+        "MATCH 3": "Leviatan",
+        "MATCH 4": "Cloud9",
+        "MATCH 5": "LOUD"
     },
     "record": {
-        "MATCH 1": "Record/NotRecorded/Recorded",
-        "MATCH 2": "Record/NotRecorded/Recorded",
-        "MATCH 3": "Record/NotRecorded/Recorded",
-        "MATCH 4": "Record/NotRecorded/Recorded",
-        "MATCH 5": "Record/NotRecorded/Recorded"
+        "MATCH 1": "Recorded",
+        "MATCH 2": "Recorded",
+        "MATCH 3": "Recorded",
+        "MATCH 4": "Recorded",
+        "MATCH 5": "Recorded"
     }
 }
