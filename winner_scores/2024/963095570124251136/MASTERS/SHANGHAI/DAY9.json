@@ -1,0 +1,14 @@
+{
+    "scores": {
+        "MATCH 1": 2,
+        "MATCH 2": 3
+    },
+    "winners": {
+        "MATCH 1": "Gen.G",
+        "MATCH 2": "Team Heretics"
+    },
+    "record": {
+        "MATCH 1": "Record",
+        "MATCH 2": "Record"
+    }
+}

@@ -6,15 +6,15 @@
         "MATCH 4": 2
     },
     "winners": {
-        "MATCH 1": "Edward Gaming/Paper Rex",
-        "MATCH 2": "Fnatic/FUT Esports",
-        "MATCH 3": "G2 Esports/Team Heretics",
-        "MATCH 4": "100 Thieves/Gen.G"
+        "MATCH 1": "Paper Rex",
+        "MATCH 2": "FUT Esports",
+        "MATCH 3": "G2 Esports",
+        "MATCH 4": "Gen.G"
     },
     "record": {
-        "MATCH 1": "Record",
-        "MATCH 2": "Record",
-        "MATCH 3": "RecordN",
-        "MATCH 4": "RecordN"
+        "MATCH 1": "Recorded",
+        "MATCH 2": "Recorded",
+        "MATCH 3": "Record",
+        "MATCH 4": "Record"
     }
 }
