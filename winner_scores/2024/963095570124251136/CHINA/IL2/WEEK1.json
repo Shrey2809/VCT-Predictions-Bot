@@ -1,0 +1,17 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1,
+        "MATCH 3": 1
+    },
+    "winners": {
+        "MATCH 1": "Titan Esports Club/JD Gaming",
+        "MATCH 2": "All Gamers/TYLOO",
+        "MATCH 3": "Bilibili Gaming/Wolves Esports"
+    },
+    "record": {
+        "MATCH 1": "Record/NotRecorded/Recorded",
+        "MATCH 2": "Record/NotRecorded/Recorded",
+        "MATCH 3": "Record/NotRecorded/Recorded"
+    }
+}
