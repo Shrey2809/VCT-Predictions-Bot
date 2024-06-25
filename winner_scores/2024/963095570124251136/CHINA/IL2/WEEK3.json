@@ -1,0 +1,32 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1,
+        "MATCH 3": 1,
+        "MATCH 4": 1,
+        "MATCH 5": 1,
+        "MATCH 6": 1,
+        "MATCH 7": 1,
+        "MATCH 8": 1
+    },
+    "winners": {
+        "MATCH 1": "JD Gaming/FunPlus Phoenix",
+        "MATCH 2": "Edward Gaming/Dragon Ranger Gaming",
+        "MATCH 3": "Nova Esports/Wolves Esports",
+        "MATCH 4": "JD Gaming/Trace Esports",
+        "MATCH 5": "Titan Esports Club/TYLOO",
+        "MATCH 6": "All Gamers/FunPlus Phoenix",
+        "MATCH 7": "Bilibili Gaming/Dragon Ranger Gaming",
+        "MATCH 8": "Edward Gaming/Nova Esports"
+    },
+    "record": {
+        "MATCH 1": "Record/NotRecorded/Recorded",
+        "MATCH 2": "Record/NotRecorded/Recorded",
+        "MATCH 3": "Record/NotRecorded/Recorded",
+        "MATCH 4": "Record/NotRecorded/Recorded",
+        "MATCH 5": "Record/NotRecorded/Recorded",
+        "MATCH 6": "Record/NotRecorded/Recorded",
+        "MATCH 7": "Record/NotRecorded/Recorded",
+        "MATCH 8": "Record/NotRecorded/Recorded"
+    }
+}

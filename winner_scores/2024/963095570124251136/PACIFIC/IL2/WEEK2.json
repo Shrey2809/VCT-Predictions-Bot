@@ -8,19 +8,19 @@
         "MATCH 6": 1
     },
     "winners": {
-        "MATCH 1": "DRX",
-        "MATCH 2": "Team Secret",
-        "MATCH 3": "Gen.G",
-        "MATCH 4": "Paper Rex",
-        "MATCH 5": "Rex Regum Qeon",
-        "MATCH 6": "Team Secret"
+        "MATCH 1": "Talon Esports",
+        "MATCH 2": "Paper Rex",
+        "MATCH 3": "Global Esports",
+        "MATCH 4": "DetonatioN FocusMe",
+        "MATCH 5": "DRX/Rex Regum Qeon",
+        "MATCH 6": "Team Secret/T1"
     },
     "record": {
         "MATCH 1": "Recorded",
         "MATCH 2": "Recorded",
         "MATCH 3": "Recorded",
         "MATCH 4": "Recorded",
-        "MATCH 5": "Recorded",
-        "MATCH 6": "Recorded"
+        "MATCH 5": "Record/NotRecorded/Recorded",
+        "MATCH 6": "Record/NotRecorded/Recorded"
     }
 }

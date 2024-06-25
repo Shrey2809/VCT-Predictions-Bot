@@ -1,0 +1,26 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1,
+        "MATCH 3": 1,
+        "MATCH 4": 1,
+        "MATCH 5": 1,
+        "MATCH 6": 1
+    },
+    "winners": {
+        "MATCH 1": "Talon Esports/DetonatioN FocusMe",
+        "MATCH 2": "ZETA DIVISION/Rex Regum Qeon",
+        "MATCH 3": "Global Esports/T1",
+        "MATCH 4": "Bleed Esports/Gen.G",
+        "MATCH 5": "Paper Rex/DetonatioN FocusMe",
+        "MATCH 6": "DRX/Talon Esports"
+    },
+    "record": {
+        "MATCH 1": "Record/NotRecorded/Recorded",
+        "MATCH 2": "Record/NotRecorded/Recorded",
+        "MATCH 3": "Record/NotRecorded/Recorded",
+        "MATCH 4": "Record/NotRecorded/Recorded",
+        "MATCH 5": "Record/NotRecorded/Recorded",
+        "MATCH 6": "Record/NotRecorded/Recorded"
+    }
+}

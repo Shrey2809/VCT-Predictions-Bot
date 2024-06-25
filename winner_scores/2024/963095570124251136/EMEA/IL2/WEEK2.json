@@ -1,0 +1,29 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1,
+        "MATCH 3": 1,
+        "MATCH 4": 1,
+        "MATCH 5": 1,
+        "MATCH 6": 1,
+        "MATCH 7": 1
+    },
+    "winners": {
+        "MATCH 1": "KOI/GIANTX",
+        "MATCH 2": "Fnatic/Team Vitality",
+        "MATCH 3": "Team Heretics/FUT Esports",
+        "MATCH 4": "BBL Esports/Team Liquid",
+        "MATCH 5": "Natus Vincere/GIANTX",
+        "MATCH 6": "KOI/Gentle Mates",
+        "MATCH 7": "Fnatic/Karmine Corp"
+    },
+    "record": {
+        "MATCH 1": "Record/NotRecorded/Recorded",
+        "MATCH 2": "Record/NotRecorded/Recorded",
+        "MATCH 3": "Record/NotRecorded/Recorded",
+        "MATCH 4": "Record/NotRecorded/Recorded",
+        "MATCH 5": "Record/NotRecorded/Recorded",
+        "MATCH 6": "Record/NotRecorded/Recorded",
+        "MATCH 7": "Record/NotRecorded/Recorded"
+    }
+}

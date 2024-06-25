@@ -1,0 +1,38 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1,
+        "MATCH 3": 1,
+        "MATCH 4": 1,
+        "MATCH 5": 1,
+        "MATCH 6": 1,
+        "MATCH 7": 1,
+        "MATCH 8": 1,
+        "MATCH 9": 1,
+        "MATCH 10": 1
+    },
+    "winners": {
+        "MATCH 1": "Evil Geniuses/FURIA Esports",
+        "MATCH 2": "Sentinels/KRU Esports",
+        "MATCH 3": "LOUD/MIBR",
+        "MATCH 4": "Leviatan/100 Thieves",
+        "MATCH 5": "NRG/G2 Esports",
+        "MATCH 6": "Sentinels/Cloud9",
+        "MATCH 7": "Evil Geniuses/Leviatan",
+        "MATCH 8": "LOUD/FURIA Esports",
+        "MATCH 9": "MIBR/100 Thieves",
+        "MATCH 10": "NRG/KRU Esports"
+    },
+    "record": {
+        "MATCH 1": "Record/NotRecorded/Recorded",
+        "MATCH 2": "Record/NotRecorded/Recorded",
+        "MATCH 3": "Record/NotRecorded/Recorded",
+        "MATCH 4": "Record/NotRecorded/Recorded",
+        "MATCH 5": "Record/NotRecorded/Recorded",
+        "MATCH 6": "Record/NotRecorded/Recorded",
+        "MATCH 7": "Record/NotRecorded/Recorded",
+        "MATCH 8": "Record/NotRecorded/Recorded",
+        "MATCH 9": "Record/NotRecorded/Recorded",
+        "MATCH 10": "Record/NotRecorded/Recorded"
+    }
+}
