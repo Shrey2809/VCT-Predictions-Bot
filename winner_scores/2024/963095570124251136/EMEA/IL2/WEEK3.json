@@ -8,16 +8,16 @@
         "MATCH 6": 1
     },
     "winners": {
-        "MATCH 1": "Talon Esports",
-        "MATCH 2": "Rex Regum Qeon",
-        "MATCH 3": "Global Esports/T1",
-        "MATCH 4": "Bleed Esports/Gen.G",
-        "MATCH 5": "Paper Rex/DetonatioN FocusMe",
-        "MATCH 6": "DRX/Talon Esports"
+        "MATCH 1": "Team Heretics/GIANTX",
+        "MATCH 2": "FUT Esports/Gentle Mates",
+        "MATCH 3": "KOI/Natus Vincere",
+        "MATCH 4": "Team Liquid/Karmine Corp",
+        "MATCH 5": "BBL Esports/Team Vitality",
+        "MATCH 6": "Team Heretics/Gentle Mates"
     },
     "record": {
-        "MATCH 1": "Recorded",
-        "MATCH 2": "Recorded",
+        "MATCH 1": "Record/NotRecorded/Recorded",
+        "MATCH 2": "Record/NotRecorded/Recorded",
         "MATCH 3": "Record/NotRecorded/Recorded",
         "MATCH 4": "Record/NotRecorded/Recorded",
         "MATCH 5": "Record/NotRecorded/Recorded",
