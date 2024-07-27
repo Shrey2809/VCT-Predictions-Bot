@@ -1,0 +1,14 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1
+    },
+    "winners": {
+        "MATCH 1": "Trace Esports",
+        "MATCH 2": "Edward Gaming"
+    },
+    "record": {
+        "MATCH 1": "Recorded",
+        "MATCH 2": "Recorded"
+    }
+}

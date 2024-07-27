@@ -1,0 +1,14 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1
+    },
+    "winners": {
+        "MATCH 1": "Team Vitality",
+        "MATCH 2": "Fnatic"
+    },
+    "record": {
+        "MATCH 1": "Recorded",
+        "MATCH 2": "Recorded"
+    }
+}
