@@ -10,23 +10,23 @@
         "MATCH 8": 1
     },
     "winners": {
-        "MATCH 1": "Gen.G/Sentinels",
-        "MATCH 2": "FunPlus Phoenix/Team Heretics",
-        "MATCH 3": "DRX/KRU Esports",
-        "MATCH 4": "Fnatic/Bilibili Gaming",
-        "MATCH 5": "Leviatan/Talon Esports",
-        "MATCH 6": "Team Vitality/Trace Esports",
-        "MATCH 7": "G2 Esports/Paper Rex",
-        "MATCH 8": "Edward Gaming/FUT Esports"
+        "MATCH 1": "Gen.G",
+        "MATCH 2": "Team Heretics",
+        "MATCH 3": "DRX",
+        "MATCH 4": "Fnatic",
+        "MATCH 5": "Leviatan",
+        "MATCH 6": "Trace Esports",
+        "MATCH 7": "G2 Esports",
+        "MATCH 8": "Edward Gaming"
     },
     "record": {
-        "MATCH 1": "RecordNR",
-        "MATCH 2": "RecordNR",
-        "MATCH 3": "RecordNR",
-        "MATCH 4": "RecordNR",
-        "MATCH 5": "RecordNR",
-        "MATCH 6": "RecordNR",
-        "MATCH 7": "RecordNR",
-        "MATCH 8": "RecordNR"
+        "MATCH 1": "Recorded",
+        "MATCH 2": "Recorded",
+        "MATCH 3": "Recorded",
+        "MATCH 4": "Recorded",
+        "MATCH 5": "Recorded",
+        "MATCH 6": "Recorded",
+        "MATCH 7": "Recorded",
+        "MATCH 8": "Recorded"
     }
 }

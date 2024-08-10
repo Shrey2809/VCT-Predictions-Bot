@@ -1,0 +1,31 @@
+nohup: ignoring input
+[2024-08-10 01:41:31] [INFO    ] discord.client: logging in using static token
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/discord/http.py", line 803, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+  File "/usr/local/lib/python3.10/dist-packages/discord/http.py", line 745, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 401 Unauthorized (error code: 0): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/VCT BOT/vctBot.py", line 10, in <module>
+    bot.run()
+  File "/home/ubuntu/VCT BOT/vctBotBackend.py", line 790, in run
+    super().run(self.config["discord_token"], reconnect=True)
+  File "/usr/local/lib/python3.10/dist-packages/discord/client.py", line 860, in run
+    asyncio.run(runner())
+  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.10/dist-packages/discord/client.py", line 849, in runner
+    await self.start(token, reconnect=reconnect)
+  File "/usr/local/lib/python3.10/dist-packages/discord/client.py", line 777, in start
+    await self.login(token)
+  File "/usr/local/lib/python3.10/dist-packages/discord/client.py", line 612, in login
+    data = await self.http.static_login(token)
+  File "/usr/local/lib/python3.10/dist-packages/discord/http.py", line 807, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.

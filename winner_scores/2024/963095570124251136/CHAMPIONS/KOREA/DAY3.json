@@ -1,0 +1,20 @@
+{
+    "scores": {
+        "MATCH 1": 2,
+        "MATCH 2": 2,
+        "MATCH 3": 2,
+        "MATCH 4": 2
+    },
+    "winners": {
+        "MATCH 1": "Sentinels",
+        "MATCH 2": "Fnatic",
+        "MATCH 3": "Team Vitality/Leviatan",
+        "MATCH 4": "Paper Rex/Edward Gaming"
+    },
+    "record": {
+        "MATCH 1": "Recorded",
+        "MATCH 2": "Recorded",
+        "MATCH 3": "Record",
+        "MATCH 4": "Record"
+    }
+}
