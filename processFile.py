@@ -6,36 +6,36 @@ import sys
 
 # Get old score from database and if row doesn't exist, enter data into the table
 def get_old_score(cursor, league, game_type, user, user_id, playoffs_flag = False):
-    if game_type in ["MASTERS", "CHAMPIONS", "MADRID", "SHANGHAI", "KOREA"]:
+    if game_type in ["MASTERS", "CHAMPIONS", "BANGKOK", "TORONTO", "PARIS"]:
         if playoffs_flag is True:
-            query = f'SELECT {game_type}_{league}_playoffs FROM DS_VCT_2024 WHERE user_id = ? and user_name = ?'
+            query = f'SELECT {game_type}_{league}_playoffs FROM DS_VCT_2025 WHERE user_id = ? and user_name = ?'
         else:
-            query = f'SELECT {game_type}_{league}_groups FROM DS_VCT_2024 WHERE user_id = ? and user_name = ?'
+            query = f'SELECT {game_type}_{league}_groups FROM DS_VCT_2025 WHERE user_id = ? and user_name = ?'
     else:
-        query = f'SELECT {game_type}_{league} FROM DS_VCT_2024 WHERE user_id = ? and user_name = ?'
+        query = f'SELECT {league}_{game_type} FROM DS_VCT_2025 WHERE user_id = ? and user_name = ?'
     cursor.execute(query, (user_id, user))
     old_score = cursor.fetchone()
     if old_score == None:
         old_score = 0
-        cursor.execute(f'INSERT INTO DS_VCT_2024 (user_id, user_name) VALUES (?, ?)', (user_id, user))
+        cursor.execute(f'INSERT INTO DS_VCT_2025 (user_id, user_name) VALUES (?, ?)', (user_id, user))
     else: old_score = old_score[0]
     return old_score
 
 
 def process_data(guild_id, league, game_type, day, playoffs_flag = False):
     # Initialize connection to database
-    conn = sqlite3.connect(f'VCT_2024_{guild_id}.db')
+    conn = sqlite3.connect(f'VCT_2025_{guild_id}.db')
 
     cursor = conn.cursor()
 
-    table_name = f"DS_2024_{game_type}"
+    table_name = f"DS_2025_{game_type}"
     column     = league.lower()
     if game_type == "IL1" or game_type == "IL2":
-        record_file_name = f'/home/ubuntu/VCT BOT/Records/2024/{guild_id}/{league}/{game_type}/WEEK{day}.csv'
-        winner_scores_file_name = f'/home/ubuntu/VCT BOT/winner_scores/2024/{guild_id}/{league}/{game_type}/WEEK{day}.json'
+        record_file_name = f'/home/ubuntu/VCT BOT/Records/2025/{guild_id}/{league}/{game_type}/WEEK{day}.csv'
+        winner_scores_file_name = f'/home/ubuntu/VCT BOT/winner_scores/2025/{guild_id}/{league}/{game_type}/WEEK{day}.json'
     else:
-        record_file_name = f'/home/ubuntu/VCT BOT/Records/2024/{guild_id}/{game_type}/{league}/DAY{day}.csv'
-        winner_scores_file_name = f'/home/ubuntu/VCT BOT/winner_scores/2024/{guild_id}/{game_type}/{league}/DAY{day}.json'
+        record_file_name = f'/home/ubuntu/VCT BOT/Records/2025/{guild_id}/{game_type}/{league}/WEEK{day}.csv'
+        winner_scores_file_name = f'/home/ubuntu/VCT BOT/winner_scores/2025/{guild_id}/{game_type}/{league}/WEEK{day}.json'
         
     print(record_file_name)
     print(winner_scores_file_name)
@@ -48,7 +48,7 @@ def process_data(guild_id, league, game_type, day, playoffs_flag = False):
 
     names = df.columns
 
-    # cursor.execute(f'SELECT * FROM DS_2024_FILES_PROCESSED WHERE file_name = ?', (record_file_name,))
+    # cursor.execute(f'SELECT * FROM DS_2025_FILES_PROCESSED WHERE file_name = ?', (record_file_name,))
     # if cursor.fetchone() != None:
     #     print('File already processed')
     #     exit()
@@ -72,18 +72,18 @@ def process_data(guild_id, league, game_type, day, playoffs_flag = False):
         specific_row = df.loc[df['MatchIDs'] == 'UserIDs']
         user_id = specific_row[item].tolist()[0]
         print(game_type, league, user_scores[item], user_id, item, playoffs_flag)
-        if game_type in ["MASTERS", "CHAMPIONS", "MADRID", "SHANGHAI", "KOREA"]:
+        if game_type in ["MASTERS", "CHAMPIONS", "BANGKOK", "TORONTO", "PARIS"]:
             if playoffs_flag is True:
-                query = f'UPDATE DS_VCT_2024 SET {game_type}_{league}_playoffs = {user_scores[item]} WHERE user_id = {user_id}' 
+                query = f'UPDATE DS_VCT_2025 SET {game_type}_{league}_playoffs = {user_scores[item]} WHERE user_id = {user_id}' 
             else:
-                query = f'UPDATE DS_VCT_2024 SET {game_type}_{league}_groups = {user_scores[item]} WHERE user_id = {user_id}'
+                query = f'UPDATE DS_VCT_2025 SET {game_type}_{league}_groups = {user_scores[item]} WHERE user_id = {user_id}'
         else:
-            query = f'UPDATE DS_VCT_2024 SET {game_type}_{league} = {user_scores[item]} WHERE user_id = {user_id}'
+            query = f'UPDATE DS_VCT_2025 SET {league}_{game_type} = {user_scores[item]} WHERE user_id = {user_id}'
         cursor.execute(query)
         conn.commit()
 
-    cursor.execute("INSERT INTO DS_2024_FILES_PROCESSED (file_name) VALUES (?)", (record_file_name,))
-    conn.commit()
+    # cursor.execute("INSERT INTO DS_2025_FILES_PROCESSED (file_name) VALUES (?)", (record_file_name,))
+    # conn.commit()
 
     conn.close()
 
@@ -121,7 +121,7 @@ else:
 #     print(f"\nProcess failed: {type(e).__name__}")
 
 # UNIT TEST CODE
-# conn          = sqlite3.connect(f'VCT_2024_1042862967072501860.db')
+# conn          = sqlite3.connect(f'VCT_2025_1042862967072501860.db')
 # cursor        = conn.cursor()
 # league        = "shanghai" 
 # game_type     = "masters"

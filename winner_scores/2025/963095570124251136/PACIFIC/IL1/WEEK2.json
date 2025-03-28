@@ -1,0 +1,26 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1,
+        "MATCH 3": 1,
+        "MATCH 4": 1,
+        "MATCH 5": 1,
+        "MATCH 6": 1
+    },
+    "winners": {
+        "MATCH 1": "Team Secret/ZETA DIVISION",
+        "MATCH 2": "T1/Nongshim RedForce",
+        "MATCH 3": "Gen.G Esports/Paper Rex",
+        "MATCH 4": "DRX/DetonatioN FocusMe",
+        "MATCH 5": "TALON/Rex Regum Qeon",
+        "MATCH 6": "BOOM Esports/Global Esports"
+    },
+    "record": {
+        "MATCH 1": "Record",
+        "MATCH 2": "Record",
+        "MATCH 3": "Record",
+        "MATCH 4": "Record",
+        "MATCH 5": "Record",
+        "MATCH 6": "Record"
+    }
+}

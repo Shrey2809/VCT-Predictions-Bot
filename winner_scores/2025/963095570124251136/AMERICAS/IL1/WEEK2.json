@@ -1,0 +1,26 @@
+{
+    "scores": {
+        "MATCH 1": 1,
+        "MATCH 2": 1,
+        "MATCH 3": 1,
+        "MATCH 4": 1,
+        "MATCH 5": 1,
+        "MATCH 6": 1
+    },
+    "winners": {
+        "MATCH 1": "NRG/FURIA",
+        "MATCH 2": "Sentinels/KR\u00dc Esports",
+        "MATCH 3": "100 Thieves/Evil Geniuses",
+        "MATCH 4": "G2 Esports/MIBR",
+        "MATCH 5": "LOUD/2GAME Esports",
+        "MATCH 6": "Leviat\u00e1n/Cloud9"
+    },
+    "record": {
+        "MATCH 1": "Record",
+        "MATCH 2": "Record",
+        "MATCH 3": "Record",
+        "MATCH 4": "Record",
+        "MATCH 5": "Record",
+        "MATCH 6": "Record"
+    }
+}

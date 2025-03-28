@@ -2,7 +2,7 @@ import sqlite3
 
 # Connect to a new or existing SQLite database
 # conn = sqlite3.connect('VCT_2024_963095570124251136.db')
-conn = sqlite3.connect('VCT_2024_1042862967072501860.db')
+conn = sqlite3.connect('VCT_2025_1042862967072501860.db')
 
 # Create a cursor object to interact with the database
 cursor = conn.cursor()
@@ -10,7 +10,7 @@ cursor = conn.cursor()
 # SQL commands to create tables with auto-incremented primary key and adjusted user_id field
 create_table_queries = [
     """
-    CREATE TABLE DS_VCT_2024 (
+    CREATE TABLE DS_VCT_2025 (
         id                        INTEGER PRIMARY KEY AUTOINCREMENT,
         user_name                 VARCHAR(50),
         user_id                   BIGINT,
@@ -26,12 +26,12 @@ create_table_queries = [
         il2_emea                  INT DEFAULT 0,
         il2_china                 INT DEFAULT 0,
         il2_pacific               INT DEFAULT 0,
-        masters_shanghai_groups   INT DEFAULT 0,
-        masters_shanghai_playoffs INT DEFAULT 0,
-        masters_madrid_groups     INT DEFAULT 0,
-        masters_madrid_playoffs   INT DEFAULT 0,
-        champions_korea_groups    INT DEFAULT 0,
-        champions_korea_playoffs  INT DEFAULT 0
+        masters_bangkok_groups   INT DEFAULT 0,
+        masters_bangkok_playoffs INT DEFAULT 0,
+        masters_toronto_groups     INT DEFAULT 0,
+        masters_toronto_playoffs   INT DEFAULT 0,
+        champions_paris_groups    INT DEFAULT 0,
+        champions_paris_playoffs  INT DEFAULT 0
     );"""
 ]
 

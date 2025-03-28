@@ -6,32 +6,34 @@
     
     "PACIFIC"                : "<:PACIFIC:1088622649112023081>",
     "DetonatioN FocusMe"     : "<:DFM:1088622642241740850>",
-    "Gen.G"                  : "<:GENG:1088622646989705218>",
+    "Gen.G Esports"                  : "<:GENG:1088622646989705218>",
     "Global Esports"         : "<:GE:1088622645920137226>",
     "Rex Regum Qeon"         : "<:RRQ:1088622651636977695>",
-    "Talon Esports"          : "<:TALON:1088622659308355584>",
+    "TALON"          : "<:TALON:1088622659308355584>",
     "Team Secret"            : "<:SECRET:1088622655097278464>",
     "DRX"                    : "<:DRX:1088622644586348704>",
     "Paper Rex"              : "<:PRX:1091440856898224198>",
     "ZETA DIVISION"          : "<:ZETA:1088622660319187015>",
     "T1"                     : "<:T1:1088622656175226961>",
-    "Bleed Esports"          : "<:BLEED:1191932312909262888>",
+    "BOOM Esports"           : "<:BOOM:1324128510297509948>",
+    "Nongshim RedForce"      : "<:NONGSHIMREDFORCE:1324128511744802836>",
 
     "AMERICAS"           : "<:NA:1088622603092107304>",
     "Cloud9"             : "<:C9:1088622886165692457>",
-    "FURIA Esports"      : "<:FURIA:1088622593386487858>",
-    "Leviatan"           : "<:LEV:1088622597584990218>",
+    "FURIA"      : "<:FURIA:1088622593386487858>",
+    "Leviatán"           : "<:LEV:1088622597584990218>",
     "Sentinels"          : "<:AME_SEN:1038562021664370758>",
     "100 Thieves"        : "<:AME_100T:1086908925472952462>",
     "MIBR"               : "<:MIBR:1088622601603141632>",
-    "KRU Esports"        : "<:KRU:1088622595504619621>",
+    "KRÜ Esports"        : "<:KRU:1088622595504619621>",
     "Evil Geniuses"      : "<:EG:1088622591192870943>",
     "NRG"                : "<:NRG:1088622605373800589>",
     "LOUD"               : "<:LOUD:1088622599979946044>",
     "G2 Esports"         : "<:G2:1191932292059373668>",
+    "2GAME Esports"         : "<:2G:1324127850718040144>",
 
     "CHINA"                 : "<:CHINA:1191922787149938688>",
-    "Edward Gaming"         : "<:EDG:1113552055173394503>",
+    "EDward Gaming"         : "<:EDG:1113552055173394503>",
     "FunPlus Phoenix"       : "<:FPX:1191923341729218630>",
     "Bilibili Gaming"       : "<:BLG:1134892105987276880>",
     "Trace Esports"         : "<:TRACE:1191928242890883143>",
@@ -42,6 +44,7 @@
     "TYLOO"                 : "<:TYLOO:1191929004966543360>",
     "All Gamers"            : "<:ALLGAMERS:1191928232799387679>",
     "Wolves Esports"        : "<:WOL:1191923125777092608>",
+    "XLG Esports"           : "<:XLG:1324128513179123713>",
 
     "EMEA"                  : "<:EMEA:1209381319285416006>",
     "BBL Esports"           : "<:BBL:1088622514676170865>",
@@ -54,6 +57,7 @@
     "Natus Vincere"         : "<:NAVI:1088622528039235595>",
     "Team Liquid"           : "<:LIQUID:1088622526214713445>",
     "GIANTX"                : "<:GIANTX:1191930987190439996>",
-    "Gentle Mates"          : "<:GENTLEMATES:1191931218820861982>"
+    "Gentle Mates"          : "<:GENTLEMATES:1324137464784224317>",
+    "Apeks"                 : "<:APEKS:1324127852291162163>"
 
 }

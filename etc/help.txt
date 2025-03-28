@@ -4,5 +4,5 @@ To check your rank:
 - **+rank *IL1/IL2/Kickoff***: Get your total points for a specific stage (eg. **+rank *Kickoff*** will give your score for the Kickoff tournament)
 - **+rank *China/Pacific/Americas/EMEA***: Get your total points for a specific region (eg **+rank *China*** will give your score for the China region)
 - **+rank *REGION STAGE***: Get your total points for a specific region and stage (eg **+rank *China Kickoff*** will give your score for the China Kickoff tournament)
-- **+rank *Masters Shanghai/Madrid***: Get your total points for Master Shanghai or Madrid
-- **+rank *Champions* *Korea***: Get your total points for Champions Korea
+- **+rank *Masters Toronto/Bangkok***: Get your total points for Master Toronto or Bangkok
+- **+rank *Champions* *Paris***: Get your total points for Champions Paris

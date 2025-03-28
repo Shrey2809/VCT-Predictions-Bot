@@ -57,7 +57,7 @@ class vctBotBackend(commands.AutoShardedBot):
         logging.basicConfig(
             level=logging.DEBUG,
             format='%(asctime)s [%(levelname)s] %(message)s',
-            filename='VCT2024.log',  # Specify the path to your log file
+            filename='VCT2025.log',  # Specify the path to your log file
             filemode='a'  # Use 'a' to append to the file, 'w' to overwrite
         )
         self.fname = ''
@@ -109,17 +109,17 @@ class vctBotBackend(commands.AutoShardedBot):
             return {"Command": "rank", "Type": "all"}
         
         elif league_and_type:
-            if (league_and_type.group(1) in ["china", "pacific", "americas", "emea", "madrid", "korea", "shanghai"] and 
+            if (league_and_type.group(1) in ["china", "pacific", "americas", "emea", "bangkok", "paris", "toronto"] and 
                     league_and_type.group(2) in ["il1", "il2", "kickoff", "masters", "champions"]):
                 return {"Command": "rank", "Type": "specific", "league": league_and_type.group(1), "type": league_and_type.group(2)}
-            elif (league_and_type.group(2) in ["china", "pacific", "americas", "emea", "madrid", "korea", "shanghai"] and 
+            elif (league_and_type.group(2) in ["china", "pacific", "americas", "emea", "bangkok", "paris", "toronto"] and 
                     league_and_type.group(1) in ["il1", "il2", "kickoff", "masters", "champions"]):
                 return {"Command": "rank", "Type": "specific", "league": league_and_type.group(2), "type": league_and_type.group(1)}
             else:
                 return {"Command": "rank", "Type": "404"}
             
         elif league_or_type:
-            if league_or_type.group(1) in ["china", "pacific", "americas", "emea", "madrid", "korea", "shanghai"]:
+            if league_or_type.group(1) in ["china", "pacific", "americas", "emea", "bangkok", "paris", "toronto"]:
                 return {"Command": "rank", "Type": "league", "league": league_or_type.group(1)}
             elif league_or_type.group(1) in ["il1", "il2", "kickoff", "masters", "champions"]:
                 return {"Command": "rank", "Type": "type", "type": league_or_type.group(1)}
@@ -143,17 +143,17 @@ class vctBotBackend(commands.AutoShardedBot):
             return {"Command": "leaderboard", "Type": "all"}
         
         elif league_and_type:
-            if (league_and_type.group(1) in ["china", "pacific", "americas", "emea", "madrid", "korea", "shanghai"] and 
+            if (league_and_type.group(1) in ["china", "pacific", "americas", "emea", "bangkok", "paris", "toronto"] and 
                     league_and_type.group(2) in ["il1", "il2", "kickoff", "masters", "champions"]):
                 return {"Command": "leaderboard", "Type": "specific", "league": league_and_type.group(1), "type": league_and_type.group(2)}
-            elif (league_and_type.group(2) in ["china", "pacific", "americas", "emea", "madrid", "korea", "shanghai"] and 
+            elif (league_and_type.group(2) in ["china", "pacific", "americas", "emea", "bangkok", "paris", "toronto"] and 
                     league_and_type.group(1) in ["il1", "il2", "kickoff", "masters", "champions"]):
                 return {"Command": "leaderboard", "Type": "specific", "league": league_and_type.group(2), "type": league_and_type.group(1)}
             else:
                 return {"Command": "leaderboard", "Type": "404"}
             
         elif league_or_type:
-            if league_or_type.group(1) in ["china", "pacific", "americas", "emea", "madrid", "korea", "shanghai"]:
+            if league_or_type.group(1) in ["china", "pacific", "americas", "emea", "bangkok", "paris", "toronto"]:
                 return {"Command": "leaderboard", "Type": "league", "league": league_or_type.group(1)}
             elif league_or_type.group(1) in ["il1", "il2", "kickoff", "masters", "champions"]:
                 return {"Command": "leaderboard", "Type": "type", "type": league_or_type.group(1)}
@@ -241,9 +241,9 @@ class vctBotBackend(commands.AutoShardedBot):
                 titleDict = self.parse_poll_string(messageContent)
                 pollColor = self.leagues[titleDict["League"]]
                 if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
-                    title = f'''2024/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}'''
+                    title = f'''2025/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}'''
                 else:
-                    title = f'''2024/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}'''
+                    title = f'''2025/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}'''
 
                 league    = self.emojiListFront[titleDict["League"]]
                 day       = titleDict["Day"]
@@ -283,7 +283,7 @@ class vctBotBackend(commands.AutoShardedBot):
 
                     winner[f"MATCH {j}"] = f"{self.team1[j-1]}/{self.team2[j-1]}"
                     score[f"MATCH {j}"]  = self.points[j-1]
-                    record[f"MATCH {j}"] = f"Record/NotRecorded/Recorded"
+                    record[f"MATCH {j}"] = f"Record"
 
                     i = 0
                     final_options = [] 
@@ -300,11 +300,11 @@ class vctBotBackend(commands.AutoShardedBot):
                             i += 1
                 
                 if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
-                    out_title = f'''2024/{server_id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}'''
+                    out_title = f'''2025/{server_id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}'''
                 else:
-                    out_title = f'''2024/{server_id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}'''
+                    out_title = f'''2025/{server_id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}'''
 
-                directory = f'''/2024/{server_id}/{titleDict["League"]}/{titleDict["Type"]}'''
+                directory = f'''/2025/{server_id}/{titleDict["League"]}/{titleDict["Type"]}'''
                 
                 msgIds = []
 
@@ -336,7 +336,7 @@ class vctBotBackend(commands.AutoShardedBot):
                 userName = message.author.name
                 userId   = message.author.id
                 outputDict = self.parse_leaderboard_string(messageContent)
-                conn = sqlite3.connect(f"VCT_2024_{guildId}.db")
+                conn = sqlite3.connect(f"VCT_2025_{guildId}.db")
 
                 if outputDict["Type"] == 'type':
                     print(f"TYPE TYPE: {outputDict}")
@@ -368,7 +368,7 @@ class vctBotBackend(commands.AutoShardedBot):
                         df = get_type_leaderboard(conn, latest.lower(), userName, userId)
                         embed = self.tabulate_leaderboard_df(df, latest.lower())
                         await message.channel.send(embed=embed)
-                    elif latest.lower() in ["madrid", "shanghai","korea"]:
+                    elif latest.lower() in ["bangkok", "toronto","paris"]:
                         df = get_league_leaderboard(conn, latest.lower(), userName, userId)
                         embed = self.tabulate_leaderboard_df(df, latest.lower())
                         await message.channel.send(embed=embed)
@@ -377,7 +377,7 @@ class vctBotBackend(commands.AutoShardedBot):
                     print(f"ALL TYPE: {outputDict}")
 
                     df = get_all_leaderboard(conn, userName, userId)
-                    embed = self.tabulate_leaderboard_df(df, "2024")
+                    embed = self.tabulate_leaderboard_df(df, "2025")
                     await message.channel.send(embed=embed)
 
                 elif outputDict["Type"] == '404':
@@ -395,11 +395,11 @@ class vctBotBackend(commands.AutoShardedBot):
                 messageContent = message.clean_content
                 titleDict = self.parse_poll_string(messageContent)
                 if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
-                    self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.csv'''
-                    id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.txt'''
+                    self.fname = f'''Records/2025/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.csv'''
+                    id_fname   = f'''IDs/2025/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.txt'''
                 else: 
-                    self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.csv'''
-                    id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.txt'''
+                    self.fname = f'''Records/2025/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.csv'''
+                    id_fname   = f'''IDs/2025/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.txt'''
                 
                 with open(id_fname)  as IDs:
                     self.messageIDs = [int(line.strip()) for line in IDs]
@@ -448,11 +448,11 @@ class vctBotBackend(commands.AutoShardedBot):
             messageContent = message.clean_content
             titleDict = self.parse_poll_string(messageContent)
             if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
-                self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.csv'''
-                id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.txt'''
+                self.fname = f'''Records/2025/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.csv'''
+                id_fname   = f'''IDs/2025/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.txt'''
             else: 
-                self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.csv'''
-                id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.txt'''
+                self.fname = f'''Records/2025/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.csv'''
+                id_fname   = f'''IDs/2025/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.txt'''
 
             with open(id_fname)  as IDs:
                 self.messageIDs = [int(line.strip()) for line in IDs]
@@ -585,11 +585,11 @@ class vctBotBackend(commands.AutoShardedBot):
             messageContent = message.clean_content
             titleDict = self.parse_poll_string(messageContent)
             if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
-                self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.csv'''
-                id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.txt'''
+                self.fname = f'''Records/2025/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.csv'''
+                id_fname   = f'''IDs/2025/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/WEEK{titleDict["Day"]}.txt'''
             else: 
-                self.fname = f'''Records/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.csv'''
-                id_fname   = f'''IDs/2024/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.txt'''
+                self.fname = f'''Records/2025/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.csv'''
+                id_fname   = f'''IDs/2025/{message.guild.id}/{titleDict["League"]}/{titleDict["Type"]}/DAY{titleDict["Day"]}.txt'''
 
             with open(id_fname)  as IDs:
                 self.messageIDs = [int(line.strip()) for line in IDs]
@@ -728,7 +728,7 @@ class vctBotBackend(commands.AutoShardedBot):
             userName = message.author.name
             userId   = message.author.id
             outputDict = self.parse_rank_string(messageContent)
-            conn = sqlite3.connect(f"VCT_2024_{guildId}.db")
+            conn = sqlite3.connect(f"VCT_2025_{guildId}.db")
 
             if outputDict["Type"] == 'type':
                 print(f"TYPE TYPE: {outputDict}")
@@ -760,7 +760,7 @@ class vctBotBackend(commands.AutoShardedBot):
                     df = get_type_sum(conn, latest.lower(), userName, userId)
                     embed = self.tabulate_df(df, userName, latest.lower())
                     await message.channel.send(embed=embed)
-                elif latest.lower() in ["madrid", "shanghai","korea"]:
+                elif latest.lower() in ["bangkok", "toronto","paris"]:
                     df = get_league_sum(conn, latest.lower(), userName, userId)
                     embed = self.tabulate_df(df, userName, latest.lower())
                     await message.channel.send(embed=embed)
@@ -769,7 +769,7 @@ class vctBotBackend(commands.AutoShardedBot):
                 print(f"ALL TYPE: {outputDict}")
 
                 df = get_all_sum(conn, userName, userId)
-                embed = self.tabulate_df(df, userName, "2024")
+                embed = self.tabulate_df(df, userName, "2025")
                 await message.channel.send(embed=embed)
             elif outputDict["Type"] == '404':
                 print(f"FALSE TYPE: {outputDict}")

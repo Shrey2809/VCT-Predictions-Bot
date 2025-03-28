@@ -1,0 +1,544 @@
+[2025-03-07 17:05:17] [INFO    ] discord.client: logging in using static token
+[2025-03-07 17:05:19] [INFO    ] discord.gateway: Shard ID 0 has connected to Gateway (Session ID: 762b6b2271c3fef8020ee40d8dc64b31).
+[2025-03-07 20:04:41] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-07 23:56:27] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 01:50:04] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 05:31:36] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 06:20:41] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 08:28:01] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 08:53:28] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 12:05:58] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 12:47:47] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 15:21:05] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 16:45:31] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 17:26:02] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 18:38:31] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 20:52:00] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-08 23:52:45] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 00:39:22] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 02:53:47] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 03:59:45] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 05:38:46] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 07:58:26] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 08:57:08] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 09:48:11] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 10:36:59] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 11:46:25] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 13:46:01] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 14:38:22] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 18:05:22] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 19:48:44] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-09 21:52:29] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-10 01:44:44] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-10 02:07:22] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-10 04:17:05] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-10 07:04:41] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-10 08:42:26] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-10 12:34:54] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-10 15:10:02] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-10 16:33:10] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-10 17:06:15] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-10 17:27:07] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-10 20:06:00] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-10 22:55:15] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 01:43:46] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 02:55:37] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 03:27:07] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 03:59:23] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 04:14:48] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 04:34:12] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 06:11:30] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 07:39:00] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 11:21:42] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 12:56:51] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 13:52:54] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 14:48:51] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 15:34:28] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 15:50:15] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 16:40:34] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 18:57:58] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 20:23:27] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-11 21:28:39] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 01:02:45] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 03:12:26] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 06:17:36] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 09:49:08] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 11:03:00] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 11:57:42] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 13:26:03] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 14:14:19] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 14:42:05] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 15:36:51] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 17:53:04] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 18:21:10] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 19:03:18] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-12 22:05:37] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 00:59:10] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 03:02:41] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 06:21:22] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 08:23:07] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 08:45:19] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 10:20:17] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 12:49:09] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 14:16:35] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 14:44:16] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 15:18:18] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 15:19:48] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 18:51:38] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 19:30:21] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 20:02:59] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 20:06:14] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 20:28:45] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 22:48:00] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-13 23:21:01] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 00:44:46] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 01:51:19] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 02:35:23] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 03:14:22] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 03:20:50] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 04:07:50] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 04:37:55] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 06:49:04] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 07:40:25] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 08:19:29] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 12:04:31] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 12:17:37] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 12:22:53] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 14:21:01] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 14:51:13] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 16:18:43] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 16:31:42] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 16:38:58] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 17:19:42] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 17:25:22] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 17:37:29] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 18:07:57] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 18:34:20] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 19:04:24] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 19:05:08] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 20:06:03] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 21:00:12] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 22:28:36] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-14 22:46:06] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 00:18:01] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 01:08:22] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 01:55:01] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 02:09:08] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 03:41:49] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 03:59:02] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 04:06:54] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 06:39:54] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 10:37:03] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 11:39:55] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 14:27:18] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 15:14:28] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 15:27:10] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 15:32:54] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 16:47:29] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 18:01:24] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 18:17:49] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 19:19:37] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 20:18:54] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-15 23:33:15] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 00:12:05] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 02:54:11] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 05:46:44] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 05:50:30] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 06:08:04] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 08:34:14] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 10:40:06] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 13:45:12] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 16:01:44] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 19:11:12] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 20:24:32] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 20:41:37] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 22:06:55] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 22:55:06] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 23:17:48] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-16 23:39:52] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 01:40:50] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 04:53:05] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 05:10:45] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 05:44:36] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 06:45:01] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 09:57:05] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 12:25:31] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 12:42:19] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 12:51:34] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 14:43:37] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 15:38:56] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 16:18:51] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 16:56:26] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 18:07:08] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 19:55:54] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 20:42:50] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-17 22:26:49] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 02:05:00] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 02:32:05] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 06:21:34] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 07:20:20] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 09:10:47] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 12:21:38] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 15:50:13] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 19:24:33] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 19:35:06] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 20:10:52] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 20:18:53] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 20:33:58] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 21:25:23] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-18 23:42:34] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-19 02:31:14] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-19 03:42:20] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-19 05:44:23] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-19 07:11:26] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-19 09:47:57] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-19 12:56:40] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-19 14:08:03] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-19 15:41:28] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-19 16:09:30] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-19 17:24:10] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-19 18:39:20] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-19 21:35:26] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 00:26:14] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 00:40:42] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 03:38:34] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 04:16:36] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 05:55:58] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 08:26:57] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 11:48:53] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 11:54:13] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 11:58:13] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 12:26:11] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 13:00:07] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 13:53:34] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 15:39:50] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 16:10:01] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/discord/client.py", line 441, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/ubuntu/VCT BOT/vctBotBackend.py", line 587, in on_message
+    if titleDict["Type"] == "IL1" or titleDict["Type"] == "IL2":
+TypeError: 'NoneType' object is not subscriptable
+[2025-03-20 17:55:11] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 18:11:01] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 21:25:39] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 22:07:26] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 22:07:42] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-20 22:45:33] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 00:37:10] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 01:12:15] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 04:31:53] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 08:05:10] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 11:50:21] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 12:17:31] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 12:40:16] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 14:43:28] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 17:35:04] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 18:49:19] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 20:43:51] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 20:44:54] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 20:44:59] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-21 23:03:13] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+-------------
+|VCT Poll Bot|
+-------------
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+{'VCT Predictions Bot': 1088615649535852654, 'wolfval04': 716019426339586058, 'youth_inthe_shade': 572126884347772938, 'axon319': 400713084232138755, '8bitducky': 391033881173688321, 'qure1ia': 376578281056632833, 'huntice': 363156469388148746, 'bdubsz': 346402318335475714, 'sceptilean': 305029758834573313, 'korusumi': 245204349846814721, 'urjokingright': 1125998042118639696, 'jbroz21': 937218965862764554, 'drewspark': 936333217290661948, 'ponk8575': 857826227352109076, 'envywhoo': 826957668488970260, 'coconut9832': 746435096273485876, 'turtlepita': 724599955834273804, 'anshypanshy': 707119629176143973, 'kingfred': 634462924772999179, 'f1ash1': 629826763312332819, 'dyehttodptw': 627483233868709898, 'taameme': 608605840370434048, 'kayfourfour': 583169982377099266, 'hailstorm_': 565885828513923081, '.vibez.exe': 529167439733325845, 'lyclipz': 514795975324467210, 'narranette': 484434850506604544, '.joeyx': 479829455150252035, 'beast6217': 438871832804982785, 'joachjua': 427855081292038146, 'dwgn': 417315075863478276, 'tilly_7': 402571014674055168, 'p_ine': 297927474900107265, 'tyottoyt': 266374556510322691, 'blurski': 249389416064352257, 'nitsu_': 156801288443658240}
+File and list created: {'Command': 'record', 'League': 'CHINA', 'Type': 'IL1', 'Day': 1}
+<:XLG:1324128513179123713> has count: 9
+<:BLG:1134892105987276880> has count: 26
+Game is now closed
+<:TRACE:1191928242890883143> has count: 35
+<:ALLGAMERS:1191928232799387679> has count: 0
+Game is now closed
+<:DRG:1191928235966074890> has count: 27
+<:NOVA:1191928240500121620> has count: 8
+Game is now closed
+<:TYLOO:1191929004966543360> has count: 1
+<:EDG:1113552055173394503> has count: 34
+Game is now closed
+<:JDG:1191928237408919564> has count: 4
+<:WOL:1191923125777092608> has count: 31
+Game is now closed
+<:FPX:1191923341729218630> has count: 31
+<:TITAN:1191928241645170770> has count: 4
+Game is now closed
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+SPECIFIC TYPE: {'Command': 'rank', 'Type': 'specific', 'league': 'bangkok', 'type': 'masters'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+LEAGUE TYPE: {'Command': 'rank', 'Type': 'league', 'league': 'china'}
+LEAGUE TYPE: {'Command': 'rank', 'Type': 'league', 'league': 'china'}
+FALSE TYPE: {'Command': 'rank', 'Type': '404'}
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+LEAGUE TYPE: {'Command': 'rank', 'Type': 'league', 'league': 'china'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+LEAGUE TYPE: {'Command': 'rank', 'Type': 'league', 'league': 'china'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+LEAGUE TYPE: {'Command': 'rank', 'Type': 'league', 'league': 'china'}
+LEAGUE TYPE: {'Command': 'rank', 'Type': 'league', 'league': 'emea'}
+LEAGUE TYPE: {'Command': 'rank', 'Type': 'league', 'league': 'americas'}
+LEAGUE TYPE: {'Command': 'rank', 'Type': 'league', 'league': 'pacific'}
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+{'VCT Predictions Bot': 1088615649535852654, 'urjokingright': 1125998042118639696, 'jbroz21': 937218965862764554, 'drewspark': 936333217290661948, 'envywhoo': 826957668488970260, 'coconut9832': 746435096273485876, 'turtlepita': 724599955834273804, 'wolfval04': 716019426339586058, 'kingfred': 634462924772999179, 'f1ash1': 629826763312332819, 'dyehttodptw': 627483233868709898, 'taameme': 608605840370434048, 'kayfourfour': 583169982377099266, 'youth_inthe_shade': 572126884347772938, 'hailstorm_': 565885828513923081, '.vibez.exe': 529167439733325845, 'lyclipz': 514795975324467210, 'willyy871': 490344071965966372, 'narranette': 484434850506604544, '.joeyx': 479829455150252035, 'beast6217': 438871832804982785, 'joachjua': 427855081292038146, 'oimagine': 414735137876738059, 'tilly_7': 402571014674055168, 'axon319': 400713084232138755, '8bitducky': 391033881173688321, 'qure1ia': 376578281056632833, 'bdubsz': 346402318335475714, 'p_ine': 297927474900107265, 'tyottoyt': 266374556510322691, 'blurski': 249389416064352257, 'korusumi': 245204349846814721, 'nitsu_': 156801288443658240}
+File and list created: {'Command': 'record', 'League': 'CHINA', 'Type': 'IL1', 'Day': 2}
+<:NOVA:1191928240500121620> has count: 0
+<:EDG:1113552055173394503> has count: 32
+Game is now closed
+<:TYLOO:1191929004966543360> has count: 0
+<:FPX:1191923341729218630> has count: 32
+Game is now closed
+<:XLG:1324128513179123713> has count: 31
+<:ALLGAMERS:1191928232799387679> has count: 1
+Game is now closed
+<:WOL:1191923125777092608> has count: 3
+<:TRACE:1191928242890883143> has count: 29
+Game is now closed
+<:TITAN:1191928241645170770> has count: 0
+<:DRG:1191928235966074890> has count: 32
+Game is now closed
+<:BLG:1134892105987276880> has count: 31
+<:JDG:1191928237408919564> has count: 0
+Game is now closed
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+{'VCT Predictions Bot': 1088615649535852654, 'drewspark': 936333217290661948, 'wolfval04': 716019426339586058, 'anshypanshy': 707119629176143973, '.vibez.exe': 529167439733325845, 'urjokingright': 1125998042118639696, 'jbroz21': 937218965862764554, 'ponk8575': 857826227352109076, 'envywhoo': 826957668488970260, 'coconut9832': 746435096273485876, 'turtlepita': 724599955834273804, 'lochiee': 648269587493945357, 'kingfred': 634462924772999179, 'f1ash1': 629826763312332819, 'dyehttodptw': 627483233868709898, 'solrflre': 622602960500949013, 'taameme': 608605840370434048, 'kayfourfour': 583169982377099266, 'hailstorm_': 565885828513923081, 'lyclipz': 514795975324467210, 'willyy871': 490344071965966372, 'narranette': 484434850506604544, '.joeyx': 479829455150252035, 'beast6217': 438871832804982785, 'joachjua': 427855081292038146, 'jc_8765': 417063662566506498, 'tilly_7': 402571014674055168, 'axon319': 400713084232138755, '8bitducky': 391033881173688321, 'qure1ia': 376578281056632833, 'bdubsz': 346402318335475714, 'sceptilean': 305029758834573313, 'p_ine': 297927474900107265, 'tyottoyt': 266374556510322691, 'blurski': 249389416064352257, 'korusumi': 245204349846814721, 'nitsu_': 156801288443658240, 'mreid': 138041819354103809, 'dwgn': 417315075863478276}
+File and list created: {'Command': 'record', 'League': 'AMERICAS', 'Type': 'IL1', 'Day': 1}
+<:C9:1088622886165692457> has count: 4
+<:NRG:1088622605373800589> has count: 33
+Game is now closed
+<:KRU:1088622595504619621> has count: 13
+<:LOUD:1088622599979946044> has count: 25
+Game is now closed
+<:G2:1191932292059373668> has count: 37
+<:FURIA:1088622593386487858> has count: 0
+Game is now closed
+<:MIBR:1088622601603141632> has count: 23
+<:LEV:1088622597584990218> has count: 16
+Game is now closed
+<:2G:1324127850718040144> has count: 1
+<:EG:1088622591192870943> has count: 37
+Game is now closed
+<:AME_SEN:1038562021664370758> has count: 31
+<:AME_100T:1086908925472952462> has count: 7
+Game is now closed
+[2025-03-22 02:20:32] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 04:09:25] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 04:44:40] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 08:20:20] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 09:34:49] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 10:09:57] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 12:19:17] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 15:43:52] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 16:29:26] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 17:36:07] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 18:48:04] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 19:29:04] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 21:16:43] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-22 22:21:46] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-23 00:53:32] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-23 03:58:05] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-23 06:13:37] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-23 09:36:45] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-23 10:20:37] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-23 11:37:43] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-23 12:13:22] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-23 15:49:01] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-23 18:27:06] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-23 21:44:00] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-23 21:53:26] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 00:52:55] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 02:12:25] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 02:30:33] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 05:58:35] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 06:08:44] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 07:27:47] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 08:30:26] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 10:00:50] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 11:09:10] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 11:48:16] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 12:17:46] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 12:26:46] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 12:32:51] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 13:15:15] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 15:37:11] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 17:34:03] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 18:06:23] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-24 21:37:08] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 00:45:24] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 00:52:04] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 01:36:17] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 05:17:27] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 05:33:57] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 05:34:15] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 08:43:06] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 11:01:45] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 13:17:26] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 15:23:08] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 17:17:37] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 17:43:19] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 17:51:39] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 18:11:33] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 19:12:36] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 19:20:57] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 19:59:37] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 20:08:05] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 20:28:43] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-25 20:55:32] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 00:23:37] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 04:17:25] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 07:56:59] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 10:06:54] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 12:28:36] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 14:58:28] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 15:23:36] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 16:12:12] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 16:34:21] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 17:09:39] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 17:46:27] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 18:21:17] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 18:35:01] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 19:11:53] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 20:09:09] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 20:14:29] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 20:25:47] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 21:07:50] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 21:16:17] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 21:21:55] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 21:45:05] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-26 21:56:14] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 00:33:49] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 01:21:08] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 02:18:57] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 06:07:08] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 06:38:46] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 09:04:34] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 12:00:18] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 12:35:00] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 13:03:35] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 14:32:34] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+{'VCT Predictions Bot': 1088615649535852654, 'drewspark': 936333217290661948, 'wolfval04': 716019426339586058, 'anshypanshy': 707119629176143973, '.vibez.exe': 529167439733325845, 'urjokingright': 1125998042118639696, 'jbroz21': 937218965862764554, 'ponk8575': 857826227352109076, 'envywhoo': 826957668488970260, 'coconut9832': 746435096273485876, 'turtlepita': 724599955834273804, 'lochiee': 648269587493945357, 'kingfred': 634462924772999179, 'f1ash1': 629826763312332819, 'dyehttodptw': 627483233868709898, 'solrflre': 622602960500949013, 'taameme': 608605840370434048, 'kayfourfour': 583169982377099266, 'hailstorm_': 565885828513923081, 'lyclipz': 514795975324467210, 'willyy871': 490344071965966372, 'narranette': 484434850506604544, '.joeyx': 479829455150252035, 'beast6217': 438871832804982785, 'joachjua': 427855081292038146, 'jc_8765': 417063662566506498, 'tilly_7': 402571014674055168, 'axon319': 400713084232138755, '8bitducky': 391033881173688321, 'qure1ia': 376578281056632833, 'bdubsz': 346402318335475714, 'sceptilean': 305029758834573313, 'p_ine': 297927474900107265, 'tyottoyt': 266374556510322691, 'blurski': 249389416064352257, 'korusumi': 245204349846814721, 'nitsu_': 156801288443658240, 'mreid': 138041819354103809, 'dwgn': 417315075863478276, 'huntice': 363156469388148746}
+File and list created: {'Command': 'record', 'League': 'AMERICAS', 'Type': 'IL1', 'Day': 1}
+<:C9:1088622886165692457> has count: 4
+<:NRG:1088622605373800589> has count: 33
+Game is now closed
+<:KRU:1088622595504619621> has count: 14
+<:LOUD:1088622599979946044> has count: 25
+Game is now closed
+<:G2:1191932292059373668> has count: 38
+<:FURIA:1088622593386487858> has count: 0
+Game is now closed
+<:MIBR:1088622601603141632> has count: 24
+<:LEV:1088622597584990218> has count: 16
+Game is now closed
+<:2G:1324127850718040144> has count: 1
+<:EG:1088622591192870943> has count: 38
+Game is now closed
+<:AME_SEN:1038562021664370758> has count: 32
+<:AME_100T:1086908925472952462> has count: 7
+Game is now closed
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+{'VCT Predictions Bot': 1088615649535852654, 'envywhoo': 826957668488970260, 'coconut9832': 746435096273485876, 'turtlepita': 724599955834273804, 'wolfval04': 716019426339586058, 'kingfred': 634462924772999179, 'f1ash1': 629826763312332819, 'dyehttodptw': 627483233868709898, 'kayfourfour': 583169982377099266, '.joeyx': 479829455150252035, 'beast6217': 438871832804982785, 'joachjua': 427855081292038146, 'dwgn': 417315075863478276, '8bitducky': 391033881173688321, 'qure1ia': 376578281056632833, 'bdubsz': 346402318335475714, 'sceptilean': 305029758834573313, 'tyottoyt': 266374556510322691, 'korusumi': 245204349846814721, 'urjokingright': 1125998042118639696, 'jbroz21': 937218965862764554, 'drewspark': 936333217290661948, 'anshypanshy': 707119629176143973, 'taameme': 608605840370434048, 'hailstorm_': 565885828513923081, 'lyclipz': 514795975324467210, 'narranette': 484434850506604544, 'tilly_7': 402571014674055168, 'axon319': 400713084232138755, 'huntice': 363156469388148746, 'p_ine': 297927474900107265, 'blurski': 249389416064352257, 'nitsu_': 156801288443658240}
+File and list created: {'Command': 'record', 'League': 'PACIFIC', 'Type': 'IL1', 'Day': 1}
+<:DFM:1088622642241740850> has count: 18
+<:GE:1088622645920137226> has count: 14
+Game is now closed
+<:T1:1088622656175226961> has count: 32
+<:ZETA:1088622660319187015> has count: 0
+Game is now closed
+<:DRX:1088622644586348704> has count: 27
+<:PRX:1091440856898224198> has count: 5
+Game is now closed
+<:TALON:1088622659308355584> has count: 28
+<:SECRET:1088622655097278464> has count: 4
+Game is now closed
+<:GENG:1088622646989705218> has count: 32
+<:BOOM:1324128510297509948> has count: 0
+Game is now closed
+<:NONGSHIMREDFORCE:1324128511744802836> has count: 17
+<:RRQ:1088622651636977695> has count: 14
+Game is now closed
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+LEAGUE TYPE: {'Command': 'rank', 'Type': 'league', 'league': 'americas'}
+LEAGUE TYPE: {'Command': 'rank', 'Type': 'league', 'league': 'emea'}
+LEAGUE TYPE: {'Command': 'rank', 'Type': 'league', 'league': 'pacific'}
+LEAGUE TYPE: {'Command': 'rank', 'Type': 'league', 'league': 'china'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+ALL TYPE: {'Command': 'rank', 'Type': 'all'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+TYPE TYPE: {'Command': 'rank', 'Type': 'type', 'type': 'il1'}
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+{'urjokingright': 1125998042118639696, 'VCT Predictions Bot': 1088615649535852654, 'jbroz21': 937218965862764554, 'drewspark': 936333217290661948, 'ponk8575': 857826227352109076, 'envywhoo': 826957668488970260, 'coconut9832': 746435096273485876, 'turtlepita': 724599955834273804, 'wolfval04': 716019426339586058, 'anshypanshy': 707119629176143973, 'kingfred': 634462924772999179, 'f1ash1': 629826763312332819, 'dyehttodptw': 627483233868709898, 'solrflre': 622602960500949013, 'taameme': 608605840370434048, 'hailstorm_': 565885828513923081, '.vibez.exe': 529167439733325845, 'lyclipz': 514795975324467210, 'willyy871': 490344071965966372, 'narranette': 484434850506604544, '.joeyx': 479829455150252035, 'el_bello': 464654573408354317, 'beast6217': 438871832804982785, 'joachjua': 427855081292038146, 'dwgn': 417315075863478276, 'tilly_7': 402571014674055168, 'axon319': 400713084232138755, '8bitducky': 391033881173688321, 'qure1ia': 376578281056632833, 'huntice': 363156469388148746, 'bdubsz': 346402318335475714, 'sceptilean': 305029758834573313, 'p_ine': 297927474900107265, 'tyottoyt': 266374556510322691, 'blurski': 249389416064352257, 'korusumi': 245204349846814721, 'nitsu_': 156801288443658240, 'kayfourfour': 583169982377099266}
+File and list created: {'Command': 'record', 'League': 'EMEA', 'Type': 'IL1', 'Day': 1}
+<:VIT:1088622561245536266> has count: 36
+<:GIANTX:1191930987190439996> has count: 1
+Game is now closed
+<:BBL:1088622514676170865> has count: 21
+<:KC:1088622522762797129> has count: 16
+Game is now closed
+<:TH:1088622529322696814> has count: 32
+<:APEKS:1324127852291162163> has count: 5
+Game is now closed
+<:FUT:1088622519185051718> has count: 35
+<:KOI:1088622524763480124> has count: 1
+Game is now closed
+<:FNC:1088622517993873408> has count: 33
+<:NAVI:1088622528039235595> has count: 3
+Game is now closed
+<:LIQUID:1088622526214713445> has count: 22
+<:GENTLEMATES:1324137464784224317> has count: 15
+Game is now closed
+LATEST Type: {'Command': 'rank', 'Type': 'latest'}
+[2025-03-27 17:04:22] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 17:13:42] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 20:24:11] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 21:05:57] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 21:08:31] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 22:29:58] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-27 23:08:57] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 01:11:23] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 02:03:16] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 04:04:47] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 05:39:25] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 06:25:01] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 07:02:18] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 09:58:06] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 12:36:00] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 15:07:39] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 17:26:52] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 18:07:13] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 21:08:26] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
+[2025-03-28 21:25:30] [INFO    ] discord.gateway: Shard ID 0 has successfully RESUMED session 762b6b2271c3fef8020ee40d8dc64b31.
